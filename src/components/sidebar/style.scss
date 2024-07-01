@@ -26,6 +26,10 @@
             &:hover {
                 color: white !important;
                 background-color: #6262ff;
+
+                svg {
+                    color: white !important;
+                }
             }
         }
     }
