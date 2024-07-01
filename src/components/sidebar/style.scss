@@ -1,0 +1,32 @@
+.Sidebar {
+    padding: 20px;
+    min-width: 200px;
+
+    .sideNavs {
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        flex-direction: column;
+        gap: 20px;
+
+        .sideNav {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            gap: 10px;
+            color: #969696;
+            text-transform: capitalize;
+            padding: 10px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 150px;
+            cursor: pointer;
+            transition: 100ms linear;
+
+            &:hover {
+                color: white !important;
+                background-color: #6262ff;
+            }
+        }
+    }
+}
