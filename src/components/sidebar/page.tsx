@@ -3,6 +3,7 @@ import { FaThList } from "react-icons/fa";
 import { FaBrush, FaCompass } from "react-icons/fa6";
 import { IoGameControllerSharp } from "react-icons/io5";
 import "./style.scss";
+import Link from "next/link";
 type Props = {};
 const sideNavs = [
   {
@@ -23,9 +24,13 @@ function Sidebar({}: Props) {
       <div className="sideNavs">
         {sideNavs.map((elem) => {
           return (
-            <div className="sideNav" key={elem.title}>
+            <Link
+              href={elem.title != "discover" ? "/" + elem.title : "/"}
+              className="sideNav"
+              key={elem.title}
+            >
               {elem.icon} {elem.title}
-            </div>
+            </Link>
           );
         })}
       </div>
