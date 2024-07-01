@@ -8,9 +8,10 @@ function HomePage({}: Props) {
   return (
     <div className="HomePage">
       <Slider />
-      <ItemList />
-      <ItemList />
-      <ItemList />
+      <ItemList head={"Best Viral Apps and Games"} />
+      <ItemList head={"Best Viral Apps and Games"} />
+      <ItemList head={"Best Viral Apps and Games"} />
+      <ItemList head={"Best Viral Apps and Games"} />
     </div>
   );
 }
