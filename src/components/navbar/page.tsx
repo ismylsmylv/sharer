@@ -3,13 +3,16 @@ import React, { useState } from "react";
 import "./style.scss";
 import { IoIosNotifications } from "react-icons/io";
 import { MdAccountCircle } from "react-icons/md";
+import Link from "next/link";
 type Props = {};
 
 function Navbar({}: Props) {
   const [active, setactive] = useState("left");
   return (
     <div className="Navbar">
-      <div className="logo">sharer</div>
+      <div className="logo">
+        <Link href={"/home"}>sharer</Link>
+      </div>
       <div className="navs">
         <div className="highlighted">
           <nav>
@@ -33,12 +36,12 @@ function Navbar({}: Props) {
             </button>
           </nav>
         </div>
-        <nav>
+        <Link href="/my-apps">
           <button>my apps</button>
-        </nav>
-        <nav>
+        </Link>
+        <Link href={"/settings"}>
           <button>settings</button>
-        </nav>
+        </Link>
       </div>
       <div className="controls">
         <div className="group">
@@ -54,11 +57,11 @@ function Navbar({}: Props) {
             <IoIosNotifications color="acafc1" size={30} />
           </button>
         </nav>
-        <nav>
+        <Link href={"/account"}>
           <button>
             <MdAccountCircle color="acafc1" size={30} />
           </button>
-        </nav>
+        </Link>
       </div>
     </div>
   );
