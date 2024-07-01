@@ -1,0 +1,34 @@
+.mySwiper {
+    border-radius: 20px;
+    background-color: red;
+    padding: 40px;
+
+    .swiper-slide-active,
+    .swiper-slide-next,
+    .swiper-slide {
+        width: 100% !important;
+
+        img {
+            height: 50px;
+            width: 50px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .name {
+            color: white;
+            font-size: 25px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            max-width: 50%;
+        }
+
+        .subtext {
+            max-width: 50%;
+            color: white;
+            font-size: 15px;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+    }
+}
