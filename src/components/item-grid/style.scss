@@ -1,0 +1,32 @@
+.ItemGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    gap: 30px;
+
+    .item {
+        max-width: 80px;
+
+        img {
+            height: 80px;
+            width: 80px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .name {
+            font-weight: 600;
+
+        }
+
+        .price {
+            color: rgb(255, 101, 235);
+            font-weight: 600;
+        }
+
+        .info {
+            font-size: 10px;
+            color: #969696;
+        }
+    }
+}

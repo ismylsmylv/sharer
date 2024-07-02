@@ -1,0 +1,19 @@
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    h1 {
+        color: black;
+        font-size: 25px;
+        font-weight: 600;
+    }
+
+    button {
+        margin-right: 30px;
+        color: #6262ff;
+        text-transform: capitalize;
+        font-weight: 500;
+    }
+}

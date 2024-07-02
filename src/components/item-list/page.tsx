@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.scss";
+import Heading from "../heading/page";
 type Props = {
   head: string;
 };
@@ -7,10 +8,7 @@ type Props = {
 function ItemList({ head }: Props) {
   return (
     <div className="ItemList">
-      <div className="heading">
-        <h1>{head}</h1>
-        <button>see all</button>
-      </div>
+      <Heading head={head} />
       <div className="content">
         <div className="item">
           <div className="left">
