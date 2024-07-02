@@ -10,8 +10,6 @@ function HomePage({}: Props) {
       <Slider />
       <ItemList head={"Best Viral Apps and Games"} />
       <ItemList head={"Best Viral Apps and Games"} />
-      <ItemList head={"Best Viral Apps and Games"} />
-      <ItemList head={"Best Viral Apps and Games"} />
     </div>
   );
 }
