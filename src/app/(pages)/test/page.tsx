@@ -18,7 +18,7 @@ function Test({}: Props) {
     const newDatas: ((prevState: never[]) => never[]) | DocumentData[] = [];
     querySnapshot.forEach((doc) => {
       newDatas.push(doc.data());
-      console.log(doc.id, " => ", doc.data());
+      // console.log(doc.id, " => ", doc.data());
     });
     setDatas(newDatas);
   };

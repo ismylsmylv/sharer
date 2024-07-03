@@ -24,9 +24,9 @@ function ItemList({ head, apps }: Props) {
                 {elem.price ? (
                   <button>${elem.price}</button>
                 ) : (
-                  <button>Free</button>
+                  <button>Get</button>
                 )}
-                {elem.inAppPurchases && <p>in App Purchases</p>}
+                {elem.inAppPurchases == "true" && <p>in App Purchases</p>}
               </div>
             </div>
           );

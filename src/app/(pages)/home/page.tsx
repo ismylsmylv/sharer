@@ -13,7 +13,6 @@ function HomePage({}: Props) {
   const apps = useSelector((state) => state.apps.apps);
   useEffect(() => {
     dispatch(fetchApps());
-    apps && console.log(apps);
   }, []);
   return (
     <div className="HomePage">
