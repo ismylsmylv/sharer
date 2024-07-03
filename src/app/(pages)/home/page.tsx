@@ -18,7 +18,7 @@ function HomePage({}: Props) {
     <div className="HomePage">
       {apps && (
         <>
-          <Slider />
+          {/* <Slider apps={apps} /> */}
           <ItemList
             head={"Best Viral Apps and Games"}
             apps={apps}

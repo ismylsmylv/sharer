@@ -20,8 +20,7 @@ function ItemGrid({ apps }: Props) {
                 {app.price ? <>${app.price}</> : <>Free</>}
               </div>
               <div className="info">
-                {" "}
-                {app.inAppPurchases == "true" && <>in App Purchases</>}
+                {app.inAppPurchases == "true" && <>in-App Purchases</>}
               </div>
             </div>
           )
