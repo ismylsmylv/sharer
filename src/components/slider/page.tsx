@@ -1,35 +1,43 @@
 "use client";
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 
 import "./style.scss";
-
+import { FaAngleRight } from "react-icons/fa6";
 // import required modules
-import { Pagination } from "swiper/modules";
-import Image from "next/image";
 type Props = {
   apps: object[];
 };
 
 function Slider({ apps }: Props) {
   return (
-    <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
-      {apps.map((app) => {
-        return (
-          <SwiperSlide key={app.name} style={{ backgroundImage: app?.cover }}>
-            <div className="logo">
-              <img src={app.icon} alt="app logo" width={100} height={100} />
+    <div className="slider">
+      {apps && (
+        <div key={apps[7]?.name} className="slide">
+          <div className="video-responsive">
+            <img src={apps[7]?.cover} alt="" />
+          </div>
+          <div className="content">
+            <div className="left">
+              <div className="logo">
+                <img src={apps[7]?.icon} alt="app logo" />
+              </div>
+              <div className="name">{apps[7]?.name}</div>
+              <div className="subtext">{apps[7]?.info}</div>
             </div>
-            <div className="name">{app.name}</div>
-            <div className="subtext">{app.info}</div>
-          </SwiperSlide>
-        );
-      })}
-    </Swiper>
+            <button
+              onClick={() => {
+                console.log(apps[7]);
+              }}
+            >
+              More <FaAngleRight />
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
 

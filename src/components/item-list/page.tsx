@@ -14,7 +14,7 @@ function ItemList({ head, apps, type }: Props) {
       <div className="content">
         {apps?.map((elem) => {
           type.includes(elem.type) && count < 5 && count++;
-          console.log(type);
+          // console.log(type);
           return (
             type.includes(elem.type) &&
             count < 5 && (
