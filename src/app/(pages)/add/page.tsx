@@ -1,10 +1,11 @@
 "use client";
-
+import app from "../../../../src/lib/firebase/firebaseConfig";
+import { v4 as uuidv4 } from "uuid"; // import the uuid function
 import React from "react";
 import { Formik, Field, Form, ErrorMessage, FieldArray } from "formik";
-
+import { doc, getFirestore, setDoc, addDoc } from "firebase/firestore";
 type Props = {};
-
+const db = getFirestore(app);
 const fields = [
   { name: "name", type: "text" },
   { name: "price", type: "number" },
@@ -42,8 +43,26 @@ function Add({}: Props) {
         category: [""],
       }}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
+        setTimeout(async () => {
           console.log(values);
+          const uuid = uuidv4();
+          await setDoc(doc(db, "apps", uuid), {
+            name: values.name,
+            price: values.price,
+            info: values.info,
+            releaseDate: values.releaseDate,
+            size: values.size,
+            supportContact: values.supportContact,
+            trailer: values.trailer,
+            updateDate: values.updateDate,
+            email: values.email,
+            inAppPurchases: values.inAppPurchases,
+            description: values.description,
+            cover: values.cover,
+            downloads: values.downloads,
+            screenshots: values.screenshots,
+            category: values.category,
+          });
           setSubmitting(false);
         }, 400);
       }}
