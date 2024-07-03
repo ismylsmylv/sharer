@@ -19,6 +19,9 @@ const fields = [
   { name: "description", type: "text" },
   { name: "cover", type: "text" },
   { name: "downloads", type: "text" },
+  { name: "icon", type: "text" },
+  { name: "review", type: "number" },
+  { name: "publisher", type: "text" },
 ];
 
 function Add({}: Props) {
@@ -37,7 +40,10 @@ function Add({}: Props) {
         inAppPurchases: "",
         description: "",
         cover: "",
+        icon: "",
         downloads: "",
+        publisher: "",
+        review: 0,
         screenshots: [""],
         category: [""],
       }}
@@ -49,6 +55,7 @@ function Add({}: Props) {
             name: values.name,
             price: values.price,
             info: values.info,
+            icon: values.icon,
             releaseDate: values.releaseDate,
             size: values.size,
             supportContact: values.supportContact,
@@ -61,6 +68,8 @@ function Add({}: Props) {
             downloads: values.downloads,
             screenshots: values.screenshots,
             category: values.category,
+            publisher: values.publisher,
+            review: values.review,
           });
           setSubmitting(false);
           console.log("posted");
