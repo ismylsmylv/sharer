@@ -19,9 +19,13 @@ function HomePage({}: Props) {
       {apps && (
         <>
           <Slider />
-          <ItemList head={"Best Viral Apps and Games"} apps={apps} />
+          <ItemList
+            head={"Best Viral Apps and Games"}
+            apps={apps}
+            type={["app", "game"]}
+          />
           <ItemSlider apps={apps} />
-          <ItemList head={"Best Viral Games"} apps={apps} />
+          <ItemList head={"Best Viral Games"} apps={apps} type={["game"]} />
         </>
       )}
     </div>

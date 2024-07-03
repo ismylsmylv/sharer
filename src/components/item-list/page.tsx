@@ -1,19 +1,22 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import "./style.scss";
 import Heading from "../heading/page";
 type Props = {
   head: string;
 };
 
-function ItemList({ head, apps }: Props) {
+function ItemList({ head, apps, type }: Props) {
   let count = 0;
   return (
     <div className="ItemList">
       <Heading head={head} />
       <div className="content">
         {apps?.map((elem) => {
-          count < 5 && count++;
+          type.includes(elem.type) && count < 5 && count++;
+          console.log(type);
           return (
+            type.includes(elem.type) &&
             count < 5 && (
               <div className="item" key={elem.name}>
                 <div className="left">

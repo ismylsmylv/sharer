@@ -23,7 +23,7 @@ export const fetchApps = createAsyncThunk("apps/fetchApps", async () => {
   const apps: DocumentData[] = [];
   querySnapshot.forEach((doc) => {
     apps.push(doc.data());
-    console.log(doc.id, " => ", doc.data());
+    // console.log(doc.id, " => ", doc.data());
   });
   return apps;
 });
