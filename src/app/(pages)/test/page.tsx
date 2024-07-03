@@ -32,6 +32,8 @@ function Test({}: Props) {
       Test
       {datas.length > 0 &&
         datas.map((elem: { name: string; icon: string }) => {
+          let count = 0;
+          count < 5 && count++;
           return (
             <div key={elem.name}>
               {elem.name}

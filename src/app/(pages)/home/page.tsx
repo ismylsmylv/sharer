@@ -20,8 +20,8 @@ function HomePage({}: Props) {
         <>
           <Slider />
           <ItemList head={"Best Viral Apps and Games"} apps={apps} />
-          <ItemSlider />
-          <ItemList head={"Best Viral Apps and Games"} />
+          <ItemSlider apps={apps} />
+          <ItemList head={"Best Viral Games"} apps={apps} />
         </>
       )}
     </div>

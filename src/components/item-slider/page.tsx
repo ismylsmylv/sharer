@@ -6,14 +6,14 @@ import Image from "next/image";
 import ItemGrid from "../item-grid/page";
 type Props = {};
 
-function ItemSlider({}: Props) {
+function ItemSlider({ apps }: Props) {
   return (
     <div className="ItemSlider">
       <Heading head="Indie Games Masterpiece" />
       <p>Play the must-have games</p>
       <div className="bottom">
         <Image alt="player" src={Player} />
-        <ItemGrid />
+        <ItemGrid apps={apps} />
       </div>
     </div>
   );
