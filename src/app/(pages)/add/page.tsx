@@ -21,6 +21,7 @@ const fields = [
   { name: "downloads", type: "text" },
   { name: "icon", type: "text" },
   { name: "review", type: "number" },
+  { name: "type", type: "type" },
   { name: "publisher", type: "text" },
 ];
 
@@ -39,6 +40,7 @@ function Add({}: Props) {
         email: "",
         inAppPurchases: "",
         description: "",
+        type: "",
         cover: "",
         icon: "",
         downloads: "",
@@ -69,6 +71,7 @@ function Add({}: Props) {
             screenshots: values.screenshots,
             category: values.category,
             publisher: values.publisher,
+            type: values.type,
             review: values.review,
           });
           setSubmitting(false);
