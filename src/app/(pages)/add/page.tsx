@@ -1,9 +1,8 @@
 "use client";
-import app from "../../../../src/lib/firebase/firebaseConfig";
+import { doc, getFirestore, setDoc } from "firebase/firestore";
+import { ErrorMessage, Field, FieldArray, Form, Formik } from "formik";
 import { v4 as uuidv4 } from "uuid"; // import the uuid function
-import React from "react";
-import { Formik, Field, Form, ErrorMessage, FieldArray } from "formik";
-import { doc, getFirestore, setDoc, addDoc } from "firebase/firestore";
+import app from "../../../../src/lib/firebase/firebaseConfig";
 type Props = {};
 const db = getFirestore(app);
 const fields = [
@@ -64,6 +63,7 @@ function Add({}: Props) {
             category: values.category,
           });
           setSubmitting(false);
+          console.log("posted");
         }, 400);
       }}
     >
