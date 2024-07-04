@@ -22,12 +22,13 @@ function Games({}: Props) {
         <>
           <Slider app={apps?.length > 0 && apps?.[7]} />
 
-          <div className="flex justify-between items-center">
+          <div className="flex content-left items-center gap-2 h-full	flex-wrap	">
             <ItemSlider
               apps={apps}
               heading={"Train your mind"}
               subHeading={"Games had never been more challenging"}
               image={Trainer}
+              type={"game"}
             />
             <ItemSlider
               reversed={true}
@@ -35,6 +36,7 @@ function Games({}: Props) {
               heading={"Simulate more ways"}
               subHeading={"There's not just one option"}
               image={Learner}
+              type={"game"}
             />
           </div>
           <ItemList

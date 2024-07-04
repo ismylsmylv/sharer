@@ -34,7 +34,7 @@ function Slider({ app }: Props) {
             </div>
             <button
               onClick={() => {
-                console.log(apps[7]);
+                console.log(app);
               }}
             >
               More <FaAngleRight />

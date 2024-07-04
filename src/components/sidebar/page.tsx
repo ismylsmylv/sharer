@@ -18,7 +18,7 @@ const sideNavs = [
   },
   { icon: <AiFillAppstore size={25} color="#ACAFC1" />, title: "apps" },
   { icon: <IoMdAddCircle size={25} color="#ACAFC1" />, title: "add" },
-  { icon: <FaThList size={25} color="#ACAFC1" />, title: "categories" },
+  // { icon: <FaThList size={25} color="#ACAFC1" />, title: "categories" },
 ];
 function Sidebar({}: Props) {
   return (

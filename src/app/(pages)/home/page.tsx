@@ -28,12 +28,13 @@ function HomePage({}: Props) {
             type={["app", "game"]}
             selectedCount={5}
           />
-          <div className="flex content-between items-center gap-10 h-full	flex-wrap	">
+          <div className="flex content-left items-start gap-2 h-full	flex-wrap	">
             <ItemSlider
               apps={apps}
               heading={"Indie Games Masterpiece"}
               subHeading={"Play the must-have games"}
               image={Player}
+              type={"game"}
             />
             <AccountCard />
           </div>

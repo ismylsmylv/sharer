@@ -1,17 +1,17 @@
 import "./style.scss";
 type Props = {};
 
-function ItemGrid({ apps }: Props) {
+function ItemGrid({ apps, type }: Props) {
   let count = 0;
   return (
     <div className="ItemGrid">
       {apps.map((app) => {
-        app.type == "game" && count < 5 && count++;
+        app.type == type && count < 5 && count++;
         return (
-          app.type == "game" &&
+          app.type == type &&
           count < 5 && (
             <div className="item" key={app.title}>
-              <img src={app.icon} alt="Stardew" />
+              <img src={app.icon} alt="icon" />
               <div className="name">{app.name}</div>
               <div className="price">
                 {app.price ? <>${app.price}</> : <>Free</>}
