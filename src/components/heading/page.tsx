@@ -6,7 +6,7 @@ function Heading({ head }: Props) {
   return (
     <div className="heading">
       <h1>{head}</h1>
-      <button>see all</button>
+      {head != "See more" && <button>see all</button>}
     </div>
   );
 }

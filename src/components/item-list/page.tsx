@@ -6,18 +6,18 @@ type Props = {
   head: string;
 };
 
-function ItemList({ head, apps, type }: Props) {
+function ItemList({ head, apps, type, selectedCount }: Props) {
   let count = 0;
   return (
     <div className="ItemList">
       <Heading head={head} />
       <div className="content">
         {apps?.map((elem) => {
-          type.includes(elem.type) && count < 5 && count++;
+          type.includes(elem.type) && count < selectedCount && count++;
           // console.log(type);
           return (
             type.includes(elem.type) &&
-            count < 5 && (
+            count < selectedCount && (
               <div className="item" key={elem.name}>
                 <div className="left">
                   <img src={elem.icon} alt="" />

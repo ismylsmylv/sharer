@@ -6,6 +6,7 @@ import "./style.scss";
 import ItemSlider from "@/components/item-slider/page";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchApps } from "@/redux/slice";
+import Player from "@/assets/images/image.png";
 type Props = {};
 
 function HomePage({}: Props) {
@@ -23,9 +24,20 @@ function HomePage({}: Props) {
             head={"Best Viral Apps and Games"}
             apps={apps}
             type={["app", "game"]}
+            selectedCount={5}
           />
-          <ItemSlider apps={apps} />
-          <ItemList head={"Best Viral Games"} apps={apps} type={["game"]} />
+          <ItemSlider
+            apps={apps}
+            heading={"Indie Games Masterpiece"}
+            subHeading={"Play the must-have games"}
+            image={Player}
+          />
+          <ItemList
+            head={"Best Viral Games"}
+            apps={apps}
+            type={["game"]}
+            selectedCount={5}
+          />
         </>
       )}
     </div>
