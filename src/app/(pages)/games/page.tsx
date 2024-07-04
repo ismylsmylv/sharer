@@ -20,7 +20,7 @@ function Games({}: Props) {
     <div className="Games">
       {apps && (
         <>
-          <Slider apps={apps} />
+          <Slider app={apps?.length > 0 && apps?.[7]} />
 
           <div className="flex justify-between items-center">
             <ItemSlider
@@ -30,6 +30,7 @@ function Games({}: Props) {
               image={Trainer}
             />
             <ItemSlider
+              reversed={true}
               apps={apps}
               heading={"Simulate more ways"}
               subHeading={"There's not just one option"}

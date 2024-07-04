@@ -19,7 +19,8 @@ function HomePage({}: Props) {
     <div className="HomePage">
       {apps && (
         <>
-          <Slider apps={apps} />
+          <Slider app={apps?.length > 0 && apps?.[5]} />
+
           <ItemList
             head={"Best Viral Apps and Games"}
             apps={apps}

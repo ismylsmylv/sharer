@@ -6,26 +6,31 @@ import "swiper/css/pagination";
 
 import "./style.scss";
 import { FaAngleRight } from "react-icons/fa6";
+import { useEffect } from "react";
 // import required modules
 type Props = {
   apps: object[];
 };
 
-function Slider({ apps }: Props) {
+function Slider({ app }: Props) {
+  useEffect(() => {
+    console.log(app);
+  }, []);
   return (
     <div className="slider">
-      {apps && (
-        <div key={apps[7]?.name} className="slide">
-          <div className="video-responsive">
-            <img src={apps[7]?.cover} alt="" />
-          </div>
+      {app && (
+        <div
+          key={app.name}
+          className="slide"
+          style={{ backgroundImage: `url(${app.cover})` }}
+        >
           <div className="content">
             <div className="left">
               <div className="logo">
-                <img src={apps[7]?.icon} alt="app logo" />
+                <img src={app.icon} alt="app logo" />
               </div>
-              <div className="name">{apps[7]?.name}</div>
-              <div className="subtext">{apps[7]?.info}</div>
+              <div className="name">{app.name}</div>
+              <div className="subtext">{app.info}</div>
             </div>
             <button
               onClick={() => {
