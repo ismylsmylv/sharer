@@ -26,11 +26,9 @@ export default function RootLayout({
             <Navbar />
           </div>
           <div className="sided">
-            <div className="side">
-              {typeof window !== "undefined" && window.innerWidth > 1023 && (
-                <Sidebar />
-              )}
-            </div>
+            {/* <div className="sticky top-0 left-0"> */}
+            <Sidebar />
+            {/* </div> */}
             {children}
           </div>
         </Provider>

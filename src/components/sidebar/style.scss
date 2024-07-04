@@ -3,6 +3,10 @@
     min-width: 250px;
     width: 15%;
     background-color: white;
+    position: sticky;
+    top: 86px;
+    left: 0;
+    height: fit-content;
 
     .sideNavs {
         display: flex;
@@ -34,5 +38,11 @@
                 }
             }
         }
+    }
+}
+
+@media (max-width:1024px) {
+    .Sidebar {
+        display: none;
     }
 }

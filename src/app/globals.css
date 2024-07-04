@@ -19,12 +19,4 @@ body {
     background-color: white;
     z-index: 100;
   }
-  .side {
-    position: sticky;
-    background-color: white;
-    top: 85px;
-    left: 0;
-    height: 100%;
-    z-index: 100;
-  }
 }

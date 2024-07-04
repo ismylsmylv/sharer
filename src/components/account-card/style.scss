@@ -1,0 +1,55 @@
+.AcountCard {
+    background-color: white;
+    border-radius: 20px;
+    width: fit-content;
+    margin-bottom: 30px;
+    background-size: cover;
+    height: 347px;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: start;
+    justify-content: end;
+    flex-direction: column;
+    overflow: hidden;
+
+    .content {
+        background-color: #6262ffab;
+        display: flex;
+        align-items: start;
+        justify-content: end;
+        flex-direction: column;
+        padding: 15px;
+        gap: 5px;
+
+        .head {
+            color: white;
+            font-size: 25px;
+            font-weight: 600;
+        }
+
+        .sub {
+            color: white;
+        }
+
+        button {
+            background-color: #6262ff;
+            border-radius: 10px;
+            color: white;
+            font-weight: 500;
+            padding: 5px 20px;
+            text-transform: capitalize;
+            transition: 200ms linear;
+
+            &:hover {
+                color: #6262ff;
+                background-color: white;
+            }
+        }
+    }
+}
+
+@media (max-width:1024px) {
+    .AcountCard {
+        display: none;
+    }
+}
