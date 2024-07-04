@@ -1,5 +1,6 @@
 .Sidebar {
     padding: 20px 40px;
+    padding-right: 20px;
     min-width: 250px;
     width: 15%;
     background-color: white;
@@ -25,7 +26,7 @@
             padding: 10px;
             border-radius: 10px;
             width: 100%;
-            max-width: 150px;
+            // max-width: 150px;
             cursor: pointer;
             transition: 100ms linear;
 
@@ -36,6 +37,17 @@
                 svg {
                     color: white !important;
                 }
+            }
+
+
+        }
+
+        .active {
+            color: white !important;
+            background-color: #6262ff;
+
+            svg {
+                color: white !important;
             }
         }
     }

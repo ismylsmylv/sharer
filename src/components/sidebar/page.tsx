@@ -6,6 +6,8 @@ import { VscRequestChanges } from "react-icons/vsc";
 import { IoMdAddCircle } from "react-icons/io";
 import "./style.scss";
 import Link from "next/link";
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 type Props = {};
 const sideNavs = [
   {
@@ -21,14 +23,21 @@ const sideNavs = [
   // { icon: <FaThList size={25} color="#ACAFC1" />, title: "categories" },
 ];
 function Sidebar({}: Props) {
+  const pathname = usePathname();
   return (
     <div className="Sidebar">
       <div className="sideNavs">
         {sideNavs.map((elem) => {
           return (
             <Link
+              className={`${
+                pathname === `/${elem.title}`
+                  ? "sideNav active"
+                  : pathname === "/" && elem.title == "discover"
+                  ? "sideNav active"
+                  : "sideNav"
+              }`}
               href={elem.title != "discover" ? "/" + elem.title : "/"}
-              className="sideNav"
               key={elem.title}
             >
               {elem.icon} {elem.title}
