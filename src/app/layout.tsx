@@ -27,7 +27,9 @@ export default function RootLayout({
           </div>
           <div className="sided">
             <div className="side">
-              <Sidebar />
+              {typeof window !== "undefined" && window.innerWidth > 1023 && (
+                <Sidebar />
+              )}
             </div>
             {children}
           </div>

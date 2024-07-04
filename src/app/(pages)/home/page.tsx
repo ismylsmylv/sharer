@@ -27,12 +27,14 @@ function HomePage({}: Props) {
             type={["app", "game"]}
             selectedCount={5}
           />
-          <ItemSlider
-            apps={apps}
-            heading={"Indie Games Masterpiece"}
-            subHeading={"Play the must-have games"}
-            image={Player}
-          />
+          <div className="flex content-between items-center">
+            <ItemSlider
+              apps={apps}
+              heading={"Indie Games Masterpiece"}
+              subHeading={"Play the must-have games"}
+              image={Player}
+            />
+          </div>
           <ItemList
             head={"Best Viral Games"}
             apps={apps}

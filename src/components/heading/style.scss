@@ -17,3 +17,13 @@
         font-weight: 500;
     }
 }
+
+@media (max-width:1024px) {
+    .heading h1 {
+        font-size: 20px;
+    }
+
+    .heading button {
+        margin-right: 10px;
+    }
+}

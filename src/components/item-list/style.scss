@@ -81,3 +81,27 @@
         }
     }
 }
+
+@media (max-width:1024px) {
+    .ItemList {
+        .content {
+            padding: 10px;
+            grid-template-columns: 1fr;
+            gap: 0px;
+            grid-template-rows: repeat(4, 1fr);
+
+            .item .text {
+                margin-right: 10px;
+            }
+
+            .item {
+                .manage {
+                    p {
+                        font-size: 10px;
+                    }
+
+                }
+            }
+        }
+    }
+}

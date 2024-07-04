@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&display=swap');
+
 .Navbar {
     padding: 20px 50px;
     display: flex;
@@ -7,10 +9,23 @@
 
 
     .logo {
+
         font-size: 30px;
-        text-transform: uppercase;
+        text-transform: capitalize;
         font-weight: 600;
         color: #6262ff;
+        transition: 200ms linear;
+
+        &:hover {
+            color: blue;
+
+        }
+
+        a {
+            font-family: "Anton SC", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
     }
 
     .navs {
@@ -93,6 +108,16 @@
             fill: #9e9ea7;
             width: 1rem;
             height: 1rem;
+        }
+    }
+}
+
+@media (max-width:1024px) {
+    .Navbar {
+        padding: 20px;
+
+        .navs {
+            display: none;
         }
     }
 }

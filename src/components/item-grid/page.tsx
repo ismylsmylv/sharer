@@ -1,7 +1,4 @@
-import React from "react";
 import "./style.scss";
-import Stardew from "@/assets/images/stardew.png";
-import Image from "next/image";
 type Props = {};
 
 function ItemGrid({ apps }: Props) {
@@ -13,8 +10,8 @@ function ItemGrid({ apps }: Props) {
         return (
           app.type == "game" &&
           count < 5 && (
-            <div className="item">
-              <img src={app.icon} alt="Stardew" height="80" width="80" />
+            <div className="item" key={app.title}>
+              <img src={app.icon} alt="Stardew" />
               <div className="name">{app.name}</div>
               <div className="price">
                 {app.price ? <>${app.price}</> : <>Free</>}

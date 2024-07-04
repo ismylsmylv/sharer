@@ -2,6 +2,8 @@ import { AiFillAppstore } from "react-icons/ai";
 import { FaThList } from "react-icons/fa";
 import { FaBrush, FaCompass } from "react-icons/fa6";
 import { IoGameControllerSharp } from "react-icons/io5";
+import { VscRequestChanges } from "react-icons/vsc";
+import { IoMdAddCircle } from "react-icons/io";
 import "./style.scss";
 import Link from "next/link";
 type Props = {};
@@ -15,7 +17,7 @@ const sideNavs = [
     title: "games",
   },
   { icon: <AiFillAppstore size={25} color="#ACAFC1" />, title: "apps" },
-  { icon: <FaBrush size={25} color="#ACAFC1" />, title: "themes" },
+  { icon: <IoMdAddCircle size={25} color="#ACAFC1" />, title: "add" },
   { icon: <FaThList size={25} color="#ACAFC1" />, title: "categories" },
 ];
 function Sidebar({}: Props) {
