@@ -55,6 +55,17 @@
                 align-items: center;
                 justify-content: center;
                 gap: 10px;
+
+                svg {
+                    transition: 100ms linear;
+                }
+
+                &:hover {
+
+                    svg {
+                        transform: translateX(5px);
+                    }
+                }
             }
         }
 
