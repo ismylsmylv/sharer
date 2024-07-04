@@ -33,8 +33,8 @@ function Apps({}: Props) {
             <ItemSlider
               reversed={true}
               apps={apps}
-              heading={"Simulate more ways"}
-              subHeading={"There's not just one option"}
+              heading={"Socialize"}
+              subHeading={"Communicate with everyone"}
               image={Caller}
               type={"app"}
             />
