@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import "./style.scss";
 import Heading from "../heading/page";
+import Link from "next/link";
 type Props = {
   head: string;
   apps: Elem[];
@@ -9,6 +10,8 @@ type Props = {
   selectedCount: number;
 };
 interface Elem {
+  id: any;
+  data: any;
   name: string;
   info: string;
   type: string;
@@ -23,28 +26,34 @@ function ItemList({ head, apps, type, selectedCount }: Props) {
       <Heading head={head} />
       <div className="content">
         {apps?.map((elem: Elem) => {
-          type.includes(elem.type) && count < selectedCount && count++;
+          type.includes(elem.data.type) && count < selectedCount && count++;
           // console.log(type);
           return (
-            type.includes(elem.type) &&
+            type.includes(elem.data.type) &&
             count < selectedCount && (
-              <div className="item" key={elem.name}>
+              <Link
+                href={`/details/${elem.id}`}
+                className="item"
+                key={elem.data.name}
+              >
                 <div className="left">
-                  <img src={elem.icon} alt="" />
+                  <img src={elem.data.icon} alt="" />
                   <div className="info">
-                    <div className="name">{elem.name}</div>
-                    <div className="text">{elem.info}</div>
+                    <div className="name">{elem.data.name}</div>
+                    <div className="text">{elem.data.info}</div>
                   </div>
                 </div>
                 <div className="manage">
-                  {elem.price ? (
-                    <button>${elem.price}</button>
+                  {elem.data.price ? (
+                    <button>${elem.data.price}</button>
                   ) : (
                     <button>Get</button>
                   )}
-                  {elem.inAppPurchases == "true" && <p>in App Purchases</p>}
+                  {elem.data.inAppPurchases == "true" && (
+                    <p>in App Purchases</p>
+                  )}
                 </div>
-              </div>
+              </Link>
             )
           );
         })}

@@ -22,7 +22,11 @@ export const fetchApps = createAsyncThunk("apps/fetchApps", async () => {
   const querySnapshot = await getDocs(collection(db, "apps"));
   const apps: DocumentData[] = [];
   querySnapshot.forEach((doc) => {
-    apps.push(doc.data());
+    const appData = {
+      data: doc.data(),
+      id: doc.id,
+    };
+    apps.push(appData);
     // console.log(doc.id, " => ", doc.data());
   });
   return apps;

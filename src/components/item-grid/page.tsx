@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "./style.scss";
 type Props = {
   head: string;
@@ -6,6 +7,8 @@ type Props = {
   selectedCount: number;
 };
 interface Elem {
+  id: any;
+  data: any;
   name: string;
   info: string;
   type: string;
@@ -19,20 +22,24 @@ function ItemGrid({ apps, type }: Props) {
   return (
     <div className="ItemGrid">
       {apps.map((app: Elem) => {
-        app.type == type && count < 5 && count++;
+        app.data.type == type && count < 5 && count++;
         return (
-          app.type == type &&
+          app.data.type == type &&
           count < 5 && (
-            <div className="item" key={app.name}>
-              <img src={app.icon} alt="icon" />
-              <div className="name">{app.name}</div>
+            <Link
+              href={`/details/${app.id}`}
+              className="item"
+              key={app.data.name}
+            >
+              <img src={app.data.icon} alt="icon" />
+              <div className="name">{app.data.name}</div>
               <div className="price">
-                {app.price ? <>${app.price}</> : <>Free</>}
+                {app.data.price ? <>${app.data.price}</> : <>Free</>}
               </div>
               <div className="info">
-                {app.inAppPurchases == "true" && <>in-App Purchases</>}
+                {app.data.inAppPurchases == "true" && <>in-App Purchases</>}
               </div>
-            </div>
+            </Link>
           )
         );
       })}

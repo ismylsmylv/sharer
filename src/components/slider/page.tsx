@@ -1,18 +1,13 @@
 "use client";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-
-import "./style.scss";
+import Link from "next/link";
 import { FaAngleRight } from "react-icons/fa6";
-import { useEffect } from "react";
-// import required modules
+import "./style.scss";
 type Props = {
   apps: object[];
   app: Elem;
 };
 interface Elem {
+  data: any;
   name: string;
   info: string;
   type: string;
@@ -22,32 +17,26 @@ interface Elem {
   cover: string;
 }
 function Slider({ app }: Props) {
-  useEffect(() => {
-    console.log(app);
-  }, []);
   return (
     <div className="slider">
       {app && (
         <div
-          key={app.name}
+          key={app?.data?.name}
           className="slide"
-          style={{ backgroundImage: `url(${app.cover})` }}
+          style={{ backgroundImage: `url(${app?.data?.cover})` }}
         >
           <div className="content">
             <div className="left">
               <div className="logo">
-                <img src={app.icon} alt="app logo" />
+                <img src={app?.data?.icon} alt="app logo" />
               </div>
-              <div className="name">{app.name}</div>
-              <div className="subtext">{app.info}</div>
+              <div className="name">{app?.data?.name}</div>
+              <div className="subtext">{app?.data?.info}</div>
             </div>
-            <button
-              onClick={() => {
-                console.log(app);
-              }}
-            >
+
+            <Link href={`/details/${app.id}`} className="button">
               More <FaAngleRight />
-            </button>
+            </Link>
           </div>
         </div>
       )}
