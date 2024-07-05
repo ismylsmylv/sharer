@@ -17,7 +17,7 @@ function Navbar({}: Props) {
         <div className="highlighted">
           <nav>
             <button
-              className={active == "left" && "active"}
+              className={active == "left" ? "active" : ""}
               onClick={() => {
                 setactive("left");
               }}
@@ -27,7 +27,7 @@ function Navbar({}: Props) {
           </nav>
           <nav>
             <button
-              className={active == "right" && "active"}
+              className={active == "right" ? "active" : ""}
               onClick={() => {
                 setactive("right");
               }}

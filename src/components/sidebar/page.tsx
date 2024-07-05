@@ -1,14 +1,10 @@
-import { AiFillAppstore } from "react-icons/ai";
-import { FaThList } from "react-icons/fa";
-import { FaBrush, FaCompass } from "react-icons/fa6";
-import { IoGameControllerSharp } from "react-icons/io5";
-import { VscRequestChanges } from "react-icons/vsc";
-import { IoMdAddCircle } from "react-icons/io";
-import "./style.scss";
 import Link from "next/link";
-import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-type Props = {};
+import { AiFillAppstore } from "react-icons/ai";
+import { FaCompass } from "react-icons/fa6";
+import { IoMdAddCircle } from "react-icons/io";
+import { IoGameControllerSharp } from "react-icons/io5";
+import "./style.scss";
 const sideNavs = [
   {
     icon: <FaCompass size={25} color="#ACAFC1" />,
@@ -22,7 +18,7 @@ const sideNavs = [
   { icon: <IoMdAddCircle size={25} color="#ACAFC1" />, title: "add" },
   // { icon: <FaThList size={25} color="#ACAFC1" />, title: "categories" },
 ];
-function Sidebar({}: Props) {
+function Sidebar() {
   const pathname = usePathname();
   return (
     <div className="Sidebar">

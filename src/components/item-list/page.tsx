@@ -4,15 +4,25 @@ import "./style.scss";
 import Heading from "../heading/page";
 type Props = {
   head: string;
+  apps: Elem[];
+  type: string[];
+  selectedCount: number;
 };
-
+interface Elem {
+  name: string;
+  info: string;
+  type: string;
+  icon: string;
+  price: number;
+  inAppPurchases: string;
+}
 function ItemList({ head, apps, type, selectedCount }: Props) {
   let count = 0;
   return (
     <div className="ItemList">
       <Heading head={head} />
       <div className="content">
-        {apps?.map((elem) => {
+        {apps?.map((elem: Elem) => {
           type.includes(elem.type) && count < selectedCount && count++;
           // console.log(type);
           return (

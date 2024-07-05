@@ -4,8 +4,25 @@ import Heading from "../heading/page";
 
 import Image from "next/image";
 import ItemGrid from "../item-grid/page";
-type Props = {};
+type Props = {
+  head: string;
+  apps: Elem[];
+  type: string;
+  selectedCount: number;
+  heading: string;
+  subHeading: string;
+  image: string;
+  reversed: boolean;
+};
 
+interface Elem {
+  name: string;
+  info: string;
+  type: string;
+  icon: string;
+  price: number;
+  inAppPurchases: string;
+}
 function ItemSlider({
   apps,
   heading,
@@ -14,7 +31,7 @@ function ItemSlider({
   reversed,
   type,
 }: Props) {
-  let reverseApps = [];
+  let reverseApps: object[] = [];
   if (reversed) {
     reverseApps = apps.slice().reverse();
   }

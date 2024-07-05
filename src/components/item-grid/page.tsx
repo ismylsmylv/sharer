@@ -1,16 +1,29 @@
 import "./style.scss";
-type Props = {};
-
+type Props = {
+  head: string;
+  apps: Elem[];
+  type: string;
+  selectedCount: number;
+};
+interface Elem {
+  name: string;
+  info: string;
+  type: string;
+  icon: string;
+  price: number;
+  inAppPurchases: string;
+  title: string;
+}
 function ItemGrid({ apps, type }: Props) {
   let count = 0;
   return (
     <div className="ItemGrid">
-      {apps.map((app) => {
+      {apps.map((app: Elem) => {
         app.type == type && count < 5 && count++;
         return (
           app.type == type &&
           count < 5 && (
-            <div className="item" key={app.title}>
+            <div className="item" key={app.name}>
               <img src={app.icon} alt="icon" />
               <div className="name">{app.name}</div>
               <div className="price">

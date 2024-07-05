@@ -8,19 +8,30 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchApps } from "@/redux/slice";
 import Player from "@/assets/images/image.png";
 import AccountCard from "@/components/account-card/page";
-type Props = {};
-
+import { StaticImageData } from "next/image";
+type Props = {
+  apps: Elem[];
+};
+interface Elem {
+  apps: object[];
+  name: string;
+  info: string;
+  type: string;
+  icon: string;
+  price: number;
+  inAppPurchases: string;
+}
 function HomePage({}: Props) {
   const dispatch = useDispatch();
-  const apps = useSelector((state) => state.apps.apps);
+  const apps = useSelector((state: Props) => state.apps.apps);
   useEffect(() => {
     dispatch(fetchApps());
   }, []);
   return (
     <div className="HomePage">
-      {apps && (
+      {apps && apps.length > 0 && (
         <>
-          <Slider app={apps?.length > 0 && apps?.[5]} />
+          <Slider app={apps?.length > 0 && apps?.[5]} apps={[]} />
 
           <ItemList
             head={"Best Viral Apps and Games"}
@@ -33,7 +44,7 @@ function HomePage({}: Props) {
               apps={apps}
               heading={"Indie Games Masterpiece"}
               subHeading={"Play the must-have games"}
-              image={Player}
+              image={Player as StaticImageData | string}
               type={"game"}
             />
             <AccountCard />

@@ -10,8 +10,17 @@ import { useEffect } from "react";
 // import required modules
 type Props = {
   apps: object[];
+  app: Elem;
 };
-
+interface Elem {
+  name: string;
+  info: string;
+  type: string;
+  icon: string;
+  price: number;
+  inAppPurchases: string;
+  cover: string;
+}
 function Slider({ app }: Props) {
   useEffect(() => {
     console.log(app);

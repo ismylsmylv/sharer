@@ -18,7 +18,7 @@ function Apps({}: Props) {
   }, []);
   return (
     <div className="Apps">
-      {apps && (
+      {apps && apps.length > 0 && (
         <>
           <Slider app={apps?.length > 0 && apps?.[5]} />
 
