@@ -1,4 +1,19 @@
 .Details {
+    width: 100%;
+    height: max-content;
+    padding: 40px;
+    background-color: #F7F6FB;
+    border-top-left-radius: 30px;
+
+    .cover {
+        img {
+            width: 100%;
+            height: 40vh;
+            object-fit: cover;
+            background-attachment: fixed;
+        }
+    }
+
     .head {
         display: flex;
         align-items: center;
