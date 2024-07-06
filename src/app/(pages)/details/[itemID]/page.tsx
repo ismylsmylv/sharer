@@ -1,11 +1,12 @@
 "use client";
-import { fetchAppById } from "@/redux/slice";
+import { fetchAppById, fetchApps } from "@/redux/slice";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { MdDownload } from "react-icons/md";
 import { FaStar } from "react-icons/fa";
 import "./style.scss";
 import Link from "next/link";
+import ItemList from "@/components/item-list/page";
 function embedder(rawUrl) {
   var url = rawUrl;
   var id;
@@ -35,8 +36,10 @@ function embedder(rawUrl) {
 function Details({ params }: { params: { itemID: string } }) {
   const dispatch = useDispatch();
   const app = useSelector((state) => state.apps.appByID);
+  const apps = useSelector((state) => state.apps.apps);
   useEffect(() => {
     dispatch(fetchAppById(params.itemID) as any);
+    dispatch(fetchApps());
     app && console.log(app);
   }, []);
   return (
@@ -61,7 +64,7 @@ function Details({ params }: { params: { itemID: string } }) {
             )}
           </div>
           <div className="head">
-            <div className="left">
+            <div className="lefthead">
               <img src={app?.data?.icon} alt="icon" />
               <div className="content">
                 <div className="name">{app.data?.name}</div>
@@ -78,7 +81,7 @@ function Details({ params }: { params: { itemID: string } }) {
                 </div>
               </div>
             </div>
-            <div className="right">
+            <div className="righthead">
               <button>Download</button>
               <Link
                 href={"https://www.wikihow.com/Install-APK-Files-on-Android"}
@@ -103,7 +106,7 @@ function Details({ params }: { params: { itemID: string } }) {
             )}
           </div>
           <div className="categories">
-            {app.data?.category.map((cat) => {
+            {app.data?.category.map((cat: string) => {
               return (
                 <div className="category" key={cat}>
                   {cat}
@@ -116,10 +119,10 @@ function Details({ params }: { params: { itemID: string } }) {
               return <img src={screen} alt="" key={screen} />;
             })}
           </div>
-          <div className="info">
+          <div className="infoDetail">
             <div className="infoElem">
               <h3>Download size</h3>
-              <p>{app.data?.size}</p>
+              <p>{app.data?.size} MB</p>
             </div>
             <div className="infoElem">
               <h3>Release date</h3>
@@ -135,13 +138,19 @@ function Details({ params }: { params: { itemID: string } }) {
             </div>
             <div className="infoElem">
               <h3>Developer contact</h3>
-              <p>{app.data?.size}</p>
-            </div>{" "}
+              <p>{app.data?.email}</p>
+            </div>
             <div className="infoElem">
               <h3>Support</h3>
               <p>{app.data?.supportContact}</p>
             </div>
           </div>
+          <ItemList
+            head="More like this"
+            apps={apps}
+            type={[app.data?.type]}
+            selectedCount={4}
+          />
         </div>
       )}
     </>
