@@ -2,7 +2,10 @@
 import { fetchAppById } from "@/redux/slice";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { MdDownload } from "react-icons/md";
+import { FaStar } from "react-icons/fa";
 import "./style.scss";
+import Link from "next/link";
 function embedder(rawUrl) {
   var url = rawUrl;
   var id;
@@ -40,12 +43,10 @@ function Details({ params }: { params: { itemID: string } }) {
     <>
       {app && (
         <div className="Details">
-          <button onClick={() => {}}>embed</button>
           <div className="cover">
             {app.data?.trailer ? (
               <iframe
-                width="560"
-                height="315"
+                width="100%"
                 src={embedder(app?.data?.trailer)}
                 title="YouTube video player"
                 frameBorder="0"
@@ -60,14 +61,31 @@ function Details({ params }: { params: { itemID: string } }) {
             )}
           </div>
           <div className="head">
-            <img src={app?.data?.icon} alt="icon" />
-            <div className="content">
-              <div className="name">{app.data?.name}</div>
-              <div className="publisher">{app.data?.publisher}</div>
-              <div className="info">
-                <div className="review">{app.data?.review}</div>
-                <div className="downloads">{app.data?.downloads}</div>
+            <div className="left">
+              <img src={app?.data?.icon} alt="icon" />
+              <div className="content">
+                <div className="name">{app.data?.name}</div>
+                <div className="publisher">{app.data?.publisher}</div>
+                <div className="info">
+                  <div className="review infoSec">
+                    <FaStar size={13} color="#6262ff" />
+                    {app.data?.review}
+                  </div>
+                  <div className="downloads infoSec">
+                    <MdDownload size={15} color="#6262ff" />
+                    {app.data?.downloads}
+                  </div>
+                </div>
               </div>
+            </div>
+            <div className="right">
+              <button>Download</button>
+              <Link
+                href={"https://www.wikihow.com/Install-APK-Files-on-Android"}
+                target="_blank"
+              >
+                How to install an APK file?
+              </Link>
             </div>
           </div>
           {params.itemID} {app && JSON.stringify(app)}
