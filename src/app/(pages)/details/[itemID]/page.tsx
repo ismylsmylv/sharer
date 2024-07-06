@@ -88,6 +88,16 @@ function Details({ params }: { params: { itemID: string } }) {
               </Link>
             </div>
           </div>
+          <div className="description">
+            <h1>About this {app.data?.type}</h1>
+            <p>{app.data?.info}</p>
+          </div>
+          <div className="screens">
+            {app.data?.screenshots?.toReversed().map((screen) => {
+              return <img src={screen} alt="" key={screen} />;
+            })}
+          </div>
+          <div className="info"></div>
           {params.itemID} {app && JSON.stringify(app)}
         </div>
       )}
