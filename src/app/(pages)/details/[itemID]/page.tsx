@@ -91,14 +91,57 @@ function Details({ params }: { params: { itemID: string } }) {
           <div className="description">
             <h1>About this {app.data?.type}</h1>
             <p>{app.data?.info}</p>
+
+            {app.data?.inAppPurchases == "true" ? (
+              <p className="purchases">
+                *The app contains in-app purchases. For more info,{" "}
+                <a href={`mailto: ${app.data?.email}`}>contact</a> the
+                developer.
+              </p>
+            ) : (
+              ""
+            )}
+          </div>
+          <div className="categories">
+            {app.data?.category.map((cat) => {
+              return (
+                <div className="category" key={cat}>
+                  {cat}
+                </div>
+              );
+            })}
           </div>
           <div className="screens">
             {app.data?.screenshots?.toReversed().map((screen) => {
               return <img src={screen} alt="" key={screen} />;
             })}
           </div>
-          <div className="info"></div>
-          {params.itemID} {app && JSON.stringify(app)}
+          <div className="info">
+            <div className="infoElem">
+              <h3>Download size</h3>
+              <p>{app.data?.size}</p>
+            </div>
+            <div className="infoElem">
+              <h3>Release date</h3>
+              <p>{app.data?.releaseDate}</p>
+            </div>
+            <div className="infoElem">
+              <h3>Updated on</h3>
+              <p>{app.data?.updateDate}</p>
+            </div>
+            <div className="infoElem">
+              <h3>Published by</h3>
+              <p>{app.data?.publisher}</p>
+            </div>
+            <div className="infoElem">
+              <h3>Developer contact</h3>
+              <p>{app.data?.size}</p>
+            </div>{" "}
+            <div className="infoElem">
+              <h3>Support</h3>
+              <p>{app.data?.supportContact}</p>
+            </div>
+          </div>
         </div>
       )}
     </>
