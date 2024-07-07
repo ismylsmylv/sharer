@@ -198,3 +198,66 @@
     }
 
 }
+
+
+
+@media (max-width:1024px) {
+    .Details {
+        padding: 10px;
+        border-top-left-radius: 0px;
+
+        .head {
+            width: 90%;
+            flex-direction: column;
+            gap: 30px;
+
+            .lefthead {
+                align-items: center;
+
+                img {
+                    height: 60px;
+                    width: 60px;
+                    margin-right: 20px;
+                }
+
+                .content {
+                    .name {
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+
+        .description {
+            width: 90%;
+
+            p {
+                max-width: 100%;
+            }
+        }
+
+        .categories {
+            width: 90%;
+        }
+
+        .screens {
+            width: 90%;
+            gap: 10px;
+        }
+
+        .infoDetail {
+            width: 90%;
+            grid-template-columns: auto;
+
+            .infoElem {
+
+                h3 {}
+
+                p {
+                    text-wrap: wrap;
+                    overflow-x: hidden;
+                }
+            }
+        }
+    }
+}
