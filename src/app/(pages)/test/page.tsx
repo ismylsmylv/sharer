@@ -20,7 +20,7 @@ function Test({}: Props) {
       newDatas.push(doc.data());
       // console.log(doc.id, " => ", doc.data());
     });
-    setDatas(newDatas);
+    setDatas(newDatas as any);
   };
 
   useEffect(() => {

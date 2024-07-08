@@ -5,7 +5,7 @@ import Heading from "../heading/page";
 import Link from "next/link";
 type Props = {
   head: string;
-  apps: Elem[];
+  apps: Elem[] | any;
   type: string[];
   selectedCount: number;
 };

@@ -1,29 +1,18 @@
 "use client";
-import ItemList from "@/components/item-list/page";
-import Slider from "@/components/slider/page";
-import React, { useEffect } from "react";
-import "./style.scss";
-import ItemSlider from "@/components/item-slider/page";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchApps } from "@/redux/slice";
 import Player from "@/assets/images/image.png";
 import AccountCard from "@/components/account-card/page";
+import ItemList from "@/components/item-list/page";
+import ItemSlider from "@/components/item-slider/page";
+import Slider from "@/components/slider/page";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { fetchApps } from "@/redux/slice";
 import { StaticImageData } from "next/image";
-type Props = {
-  apps: Elem[];
-};
-interface Elem {
-  apps: object[];
-  name: string;
-  info: string;
-  type: string;
-  icon: string;
-  price: number;
-  inAppPurchases: string;
-}
-function HomePage({}: Props) {
-  const dispatch = useDispatch();
-  const apps = useSelector((state: Props) => state.apps.apps);
+import { useEffect } from "react";
+import "./style.scss";
+
+function HomePage() {
+  const dispatch = useAppDispatch();
+  const apps = useAppSelector((state: any) => state.apps.apps);
   useEffect(() => {
     dispatch(fetchApps());
   }, []);
@@ -44,8 +33,11 @@ function HomePage({}: Props) {
               apps={apps}
               heading={"Indie Games Masterpiece"}
               subHeading={"Play the must-have games"}
-              image={Player as StaticImageData | string}
+              image={Player as StaticImageData | any}
               type={"game"}
+              head={""}
+              selectedCount={0}
+              reversed={false}
             />
             <AccountCard />
           </div>

@@ -1,7 +1,19 @@
 import React from "react";
 import "./style.scss";
-type Props = {};
+type AppData = {
+  size?: number;
+  releaseDate?: string;
+  updateDate?: string;
+  publisher?: string;
+  email?: string;
+  supportContact?: string;
+};
 
+type Props = {
+  app: {
+    data?: AppData;
+  };
+};
 function InfoDetail({ app }: Props) {
   return (
     <div className="infoDetail">

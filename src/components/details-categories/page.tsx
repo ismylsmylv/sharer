@@ -1,14 +1,20 @@
 import React from "react";
 import "./style.scss";
-type Props = {
-  app: App;
+type AppData = {
+  size?: number;
+  releaseDate?: string;
+  updateDate?: string;
+  publisher?: string;
+  email?: string;
+  supportContact?: string;
+  category?: any;
 };
-interface App {
-  data: Data[];
-}
-interface Data {
-  category: object[];
-}
+
+type Props = {
+  app: {
+    data?: AppData;
+  };
+};
 function DetailsCategory({ app }: Props) {
   return (
     <div className="categories">

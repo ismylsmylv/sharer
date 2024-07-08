@@ -2,7 +2,7 @@ import Link from "next/link";
 import "./style.scss";
 type Props = {
   head: string;
-  apps: Elem[];
+  apps: Elem[] | any;
   type: string;
   selectedCount: number;
 };

@@ -4,7 +4,7 @@ import { FaAngleRight } from "react-icons/fa6";
 import "./style.scss";
 type Props = {
   apps: object[];
-  app: Elem;
+  app: Elem | any;
 };
 interface Elem {
   data: any;

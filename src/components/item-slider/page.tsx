@@ -6,7 +6,7 @@ import Image from "next/image";
 import ItemGrid from "../item-grid/page";
 type Props = {
   head: string;
-  apps: Elem[];
+  apps: Elem[] | any;
   type: string;
   selectedCount: number;
   heading: string;
@@ -42,7 +42,12 @@ function ItemSlider({
       <p>{subHeading}</p>
       <div className="bottom">
         <Image alt="player" src={image} />
-        <ItemGrid apps={reversed ? reverseApps : apps} type={type} />
+        <ItemGrid
+          apps={reversed ? reverseApps : apps}
+          type={type}
+          head={""}
+          selectedCount={0}
+        />
       </div>
     </div>
   );

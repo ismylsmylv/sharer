@@ -1,15 +1,15 @@
 "use client";
-import { fetchAppById, fetchApps } from "@/redux/slice";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { MdDownload } from "react-icons/md";
-import { FaStar } from "react-icons/fa";
-import "./style.scss";
-import Link from "next/link";
-import ItemList from "@/components/item-list/page";
-import InfoDetail from "@/components/details-infoDetail/page";
 import Screens from "@/components/detail-screens/page";
 import DetailsCategory from "@/components/details-categories/page";
+import InfoDetail from "@/components/details-infoDetail/page";
+import ItemList from "@/components/item-list/page";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { fetchAppById, fetchApps } from "@/redux/slice";
+import Link from "next/link";
+import { useEffect } from "react";
+import { FaStar } from "react-icons/fa";
+import { MdDownload } from "react-icons/md";
+import "./style.scss";
 function embedder(rawUrl: any) {
   var url = rawUrl;
   var id;
@@ -37,11 +37,12 @@ function embedder(rawUrl: any) {
 }
 
 function Details({ params }: { params: { itemID: string } }) {
-  const dispatch = useDispatch();
-  const app = useSelector((state: any) => state.apps.appByID);
-  const apps = useSelector((state: any) => state.apps.apps);
+  const dispatch = useAppDispatch();
+  const app = useAppSelector((state: any) => state.apps.appByID);
+  const apps = useAppSelector((state: any) => state.apps.apps);
   useEffect(() => {
-    dispatch(fetchAppById(params.itemID) as any);
+    const id = params.itemID;
+    dispatch(fetchAppById(id) as any);
     dispatch(fetchApps() as any);
     app && console.log(app);
   }, []);

@@ -8,7 +8,7 @@ import {
   getFirestore,
 } from "@firebase/firestore";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
+import type { PayloadAction, UnknownAction } from "@reduxjs/toolkit";
 
 export interface AppsState {
   apps: object[];
@@ -23,9 +23,13 @@ const initialState: AppsState = {
   appByID: {},
 };
 
-export const fetchAppById = createAsyncThunk(
+interface AppData {
+  data: DocumentData;
+  id: string;
+}
+export const fetchAppById = createAsyncThunk<AppData, string>(
   "apps/fetchAppById",
-  async (id) => {
+  async (id: string) => {
     const db = getFirestore(app);
     const docRef = doc(db, "apps", id);
     const docSnap = await getDoc(docRef);
@@ -42,20 +46,24 @@ export const fetchAppById = createAsyncThunk(
 );
 
 // Asynchronous thunk to fetch apps from Firestore
-export const fetchApps = createAsyncThunk("apps/fetchApps", async () => {
-  const db = getFirestore(app);
-  const querySnapshot = await getDocs(collection(db, "apps"));
-  const apps: DocumentData[] = [];
-  querySnapshot.forEach((doc) => {
-    const appData = {
-      data: doc.data(),
-      id: doc.id,
-    };
-    apps.push(appData);
-    // console.log(doc.id, " => ", doc.data());
-  });
-  return apps;
-});
+
+export const fetchApps = createAsyncThunk<DocumentData[], void, {}>(
+  "apps/fetchApps",
+  async () => {
+    const db = getFirestore(app);
+    const querySnapshot = await getDocs(collection(db, "apps"));
+    const apps: DocumentData[] = [];
+    querySnapshot.forEach((doc) => {
+      const appData = {
+        data: doc.data(),
+        id: doc.id,
+      };
+      apps.push(appData);
+      // console.log(doc.id, " => ", doc.data());
+    });
+    return apps;
+  }
+);
 
 export const appsSlice = createSlice({
   name: "apps",
