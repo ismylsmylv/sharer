@@ -1,0 +1,18 @@
+.screens {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+
+    img {
+        scroll-snap-type: x mandatory;
+        max-height: 40vh;
+        scroll-snap-align: start;
+        max-width: 70%;
+        object-fit: cover;
+    }
+}

@@ -7,7 +7,10 @@ import { FaStar } from "react-icons/fa";
 import "./style.scss";
 import Link from "next/link";
 import ItemList from "@/components/item-list/page";
-function embedder(rawUrl) {
+import InfoDetail from "@/components/details-infoDetail/page";
+import Screens from "@/components/detail-screens/page";
+import DetailsCategory from "@/components/details-categories/page";
+function embedder(rawUrl: any) {
   var url = rawUrl;
   var id;
 
@@ -35,11 +38,11 @@ function embedder(rawUrl) {
 
 function Details({ params }: { params: { itemID: string } }) {
   const dispatch = useDispatch();
-  const app = useSelector((state) => state.apps.appByID);
-  const apps = useSelector((state) => state.apps.apps);
+  const app = useSelector((state: any) => state.apps.appByID);
+  const apps = useSelector((state: any) => state.apps.apps);
   useEffect(() => {
     dispatch(fetchAppById(params.itemID) as any);
-    dispatch(fetchApps());
+    dispatch(fetchApps() as any);
     app && console.log(app);
   }, []);
   return (
@@ -105,46 +108,9 @@ function Details({ params }: { params: { itemID: string } }) {
               ""
             )}
           </div>
-          <div className="categories">
-            {app.data?.category.map((cat: string) => {
-              return (
-                <div className="category" key={cat}>
-                  {cat}
-                </div>
-              );
-            })}
-          </div>
-          <div className="screens">
-            {app.data?.screenshots?.toReversed().map((screen) => {
-              return <img src={screen} alt="" key={screen} />;
-            })}
-          </div>
-          <div className="infoDetail">
-            <div className="infoElem">
-              <h3>Download size</h3>
-              <p>{app.data?.size} MB</p>
-            </div>
-            <div className="infoElem">
-              <h3>Release date</h3>
-              <p>{app.data?.releaseDate}</p>
-            </div>
-            <div className="infoElem">
-              <h3>Updated on</h3>
-              <p>{app.data?.updateDate}</p>
-            </div>
-            <div className="infoElem">
-              <h3>Published by</h3>
-              <p>{app.data?.publisher}</p>
-            </div>
-            <div className="infoElem">
-              <h3>Developer contact</h3>
-              <p>{app.data?.email}</p>
-            </div>
-            <div className="infoElem">
-              <h3>Support</h3>
-              <p>{app.data?.supportContact}</p>
-            </div>
-          </div>
+          <DetailsCategory app={app} />
+          <Screens app={app} />
+          <InfoDetail app={app} />
           <ItemList
             head="More like this"
             apps={apps}

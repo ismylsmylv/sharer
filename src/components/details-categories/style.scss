@@ -1,0 +1,19 @@
+.categories {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 50px;
+
+    .category {
+        padding: 5px 10px;
+        color: rgb(87, 88, 88);
+        border: 1px solid rgb(120, 122, 124);
+        border-radius: 50px;
+        font-weight: 500;
+        text-transform: capitalize;
+        text-align: center;
+    }
+}

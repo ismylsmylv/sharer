@@ -138,64 +138,11 @@
 
     }
 
-    .categories {
-        width: 80%;
-        display: flex;
-        align-items: center;
-        justify-content: left;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 50px;
 
-        .category {
-            padding: 5px 10px;
-            color: rgb(87, 88, 88);
-            border: 1px solid rgb(120, 122, 124);
-            border-radius: 50px;
-            font-weight: 500;
-            text-transform: capitalize;
-            text-align: center;
-        }
-    }
 
-    .screens {
-        width: 80%;
-        display: flex;
-        align-items: center;
-        justify-content: left;
-        overflow-y: hidden;
-        overflow-x: scroll;
-        scroll-snap-type: x mandatory;
-        gap: 20px;
 
-        img {
-            scroll-snap-type: x mandatory;
-            max-height: 40vh;
-            scroll-snap-align: start;
-            max-width: 70%;
-            object-fit: cover;
-        }
-    }
 
-    .infoDetail {
-        width: 80%;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        margin: 40px 0;
 
-        .infoElem {
-            h3 {
-                font-size: 18px;
-                font-weight: 500;
-            }
-
-            p {
-                color: rgb(95, 99, 104);
-                ;
-            }
-        }
-    }
 
 }
 
