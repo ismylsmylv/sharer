@@ -31,7 +31,7 @@ function embedder(rawUrl: any) {
     id = id.split("&")[0];
   }
 
-  var embedlink = "http://www.youtube.com/embed/" + id;
+  var embedlink = "https://www.youtube.com/embed/" + id;
   console.log(embedlink);
   return embedlink;
 }
