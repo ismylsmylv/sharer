@@ -26,9 +26,9 @@ export default function RootLayout({
             <Navbar />
           </div>
           <div className="sided">
-            {/* <div className="sticky top-0 left-0"> */}
-            <Sidebar />
-            {/* </div> */}
+            <div className="sideBarContainer">
+              <Sidebar />
+            </div>
             {children}
           </div>
         </Provider>

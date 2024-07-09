@@ -1,11 +1,14 @@
+"use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AiFillAppstore } from "react-icons/ai";
 import { FaCompass } from "react-icons/fa6";
 import { IoMdAddCircle } from "react-icons/io";
-import { IoGameControllerSharp } from "react-icons/io5";
+import { IoGameControllerSharp, IoSettingsSharp } from "react-icons/io5";
+import { TbAppsFilled } from "react-icons/tb";
 import "./style.scss";
-const sideNavs = [
+
+let sideNavs = [
   {
     icon: <FaCompass size={25} color="#ACAFC1" />,
     title: "discover",
@@ -16,6 +19,8 @@ const sideNavs = [
   },
   { icon: <AiFillAppstore size={25} color="#ACAFC1" />, title: "apps" },
   { icon: <IoMdAddCircle size={25} color="#ACAFC1" />, title: "add" },
+  { icon: <TbAppsFilled size={25} color="#ACAFC1" />, title: "my apps" },
+  { icon: <IoSettingsSharp size={25} color="#ACAFC1" />, title: "settings" },
   // { icon: <FaThList size={25} color="#ACAFC1" />, title: "categories" },
 ];
 function Sidebar() {
@@ -28,10 +33,10 @@ function Sidebar() {
             <Link
               className={`${
                 pathname === `/${elem.title}`
-                  ? "sideNav active"
+                  ? `sideNav active ${elem.title}`
                   : pathname === "/" && elem.title == "discover"
-                  ? "sideNav active"
-                  : "sideNav"
+                  ? `sideNav active ${elem.title}`
+                  : `sideNav ${elem.title}`
               }`}
               href={elem.title != "discover" ? "/" + elem.title : "/"}
               key={elem.title}

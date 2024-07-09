@@ -57,8 +57,15 @@
     }
 }
 
-@media (max-width:1024px) {
+
+@media (min-width:1024px) {
     .Sidebar {
-        display: none;
+        .sideNavs {
+
+            .my,
+            .settings {
+                display: none;
+            }
+        }
     }
 }
