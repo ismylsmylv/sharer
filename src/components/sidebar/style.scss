@@ -63,9 +63,19 @@
         .sideNavs {
 
             .my,
-            .settings {
+            .settings,
+            .close {
                 display: none;
             }
         }
+    }
+}
+
+
+@media (max-width:1024px) {
+    .Sidebar {
+        position: absolute;
+        top: 85px;
+        left: 0;
     }
 }

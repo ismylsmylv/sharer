@@ -4,13 +4,42 @@ import "./style.scss";
 import { IoIosNotifications } from "react-icons/io";
 import { MdAccountCircle } from "react-icons/md";
 import Link from "next/link";
+import { HiMiniBars3CenterLeft } from "react-icons/hi2";
+import Sidebar from "../sidebar/page";
+import { IoCloseSharp } from "react-icons/io5";
 type Props = {};
 
 function Navbar({}: Props) {
   const [active, setactive] = useState("left");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <div className="Navbar">
+      {sidebarOpen ? (
+        <div className="sidebar">
+          <Sidebar />
+        </div>
+      ) : (
+        <></>
+      )}
       <div className="logo">
+        {sidebarOpen ? (
+          <IoCloseSharp
+            size={25}
+            color="#ACAFC1"
+            onClick={() => {
+              setSidebarOpen(false);
+            }}
+          />
+        ) : (
+          <HiMiniBars3CenterLeft
+            size={25}
+            color="#ACAFC1"
+            onClick={() => {
+              setSidebarOpen(true);
+            }}
+          />
+        )}
+
         <Link href={"/home"}>sharer</Link>
       </div>
       <div className="navs">

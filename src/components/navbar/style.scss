@@ -6,10 +6,19 @@
     align-items: center;
     justify-content: space-between;
     font-family: "Poppins", sans-serif;
+    position: relative;
 
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
 
     .logo {
-
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        gap: 10px;
         font-size: 30px;
         text-transform: capitalize;
         font-weight: 600;

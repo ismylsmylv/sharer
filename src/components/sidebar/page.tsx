@@ -6,8 +6,8 @@ import { FaCompass } from "react-icons/fa6";
 import { IoMdAddCircle } from "react-icons/io";
 import { IoGameControllerSharp, IoSettingsSharp } from "react-icons/io5";
 import { TbAppsFilled } from "react-icons/tb";
-import "./style.scss";
 
+import "./style.scss";
 let sideNavs = [
   {
     icon: <FaCompass size={25} color="#ACAFC1" />,
