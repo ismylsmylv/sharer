@@ -23,7 +23,7 @@ let sideNavs = [
   { icon: <IoSettingsSharp size={25} color="#ACAFC1" />, title: "settings" },
   // { icon: <FaThList size={25} color="#ACAFC1" />, title: "categories" },
 ];
-function Sidebar() {
+function Sidebar({ sidebarOpen, setSidebarOpen }) {
   const pathname = usePathname();
   return (
     <div className="Sidebar">
@@ -40,6 +40,9 @@ function Sidebar() {
               }`}
               href={elem.title != "discover" ? "/" + elem.title : "/"}
               key={elem.title}
+              onClick={() => {
+                setSidebarOpen(false);
+              }}
             >
               {elem.icon} {elem.title}
             </Link>

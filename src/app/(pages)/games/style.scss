@@ -6,3 +6,12 @@
     background-color: #F7F6FB;
     border-top-left-radius: 30px;
 }
+
+@media (max-width:1024px) {
+    .Games {
+        border-top-left-radius: 0px;
+        padding: 10px;
+    }
+
+
+}

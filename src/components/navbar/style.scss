@@ -35,6 +35,10 @@
             font-weight: 700;
             font-style: normal;
         }
+
+        svg {
+            display: none;
+        }
     }
 
     .navs {
@@ -123,7 +127,15 @@
 
 @media (max-width:1024px) {
     .Navbar {
-        padding: 20px;
+        padding: 15px 10px;
+
+        .logo {
+            font-size: 25px;
+
+            svg {
+                display: block;
+            }
+        }
 
         .navs {
             display: none;

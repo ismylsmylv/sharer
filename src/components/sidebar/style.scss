@@ -5,7 +5,7 @@
     width: 15%;
     background-color: white;
     position: sticky;
-    top: 86px;
+    top: 85px;
     left: 0;
     height: fit-content;
 
@@ -75,7 +75,8 @@
 @media (max-width:1024px) {
     .Sidebar {
         position: absolute;
-        top: 85px;
+        top: 70px;
+        padding: 20px;
         left: 0;
     }
 }

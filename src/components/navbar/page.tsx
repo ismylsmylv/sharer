@@ -16,7 +16,7 @@ function Navbar({}: Props) {
     <div className="Navbar">
       {sidebarOpen ? (
         <div className="sidebar">
-          <Sidebar />
+          <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
         </div>
       ) : (
         <></>

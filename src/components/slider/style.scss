@@ -24,12 +24,12 @@
             align-items: end;
             justify-content: space-between;
             z-index: 10;
+            gap: 10px;
 
             img {
                 height: 50px;
                 width: 50px;
                 object-fit: cover;
-                margin-bottom: 15px;
                 border-radius: 10px;
             }
 
@@ -37,16 +37,15 @@
                 color: white;
                 font-size: 25px;
                 font-weight: 600;
-                margin-bottom: 15px;
-                max-width: 50%;
+                text-shadow: 1px 1px 2px black;
             }
 
             .subtext {
-                max-width: 50%;
                 color: white;
                 font-size: 15px;
                 font-weight: 300;
-                margin-bottom: 15px;
+                text-shadow: 1px 1px 2px black;
+                max-width: 80%;
             }
 
             .button {
@@ -104,7 +103,6 @@
 
     .subtext {
         overflow: hidden;
-        max-width: 90% !important;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         /* number of lines to show */

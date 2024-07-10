@@ -112,12 +112,14 @@ function Details({ params }: { params: { itemID: string } }) {
           <DetailsCategory app={app} />
           <Screens app={app} />
           <InfoDetail app={app} />
-          <ItemList
-            head="More like this"
-            apps={apps}
-            type={[app.data?.type]}
-            selectedCount={4}
-          />
+          <div className="m-5">
+            <ItemList
+              head="More like this"
+              apps={apps}
+              type={[app.data?.type]}
+              selectedCount={4}
+            />
+          </div>
         </div>
       )}
     </>
