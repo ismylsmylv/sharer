@@ -12,11 +12,11 @@ import { MdDownload } from "react-icons/md";
 import "./style.scss";
 import InstaAPK from "@/assets/apk/index.apk";
 
-const downloadAPKFile = (apkPath, appName) => {
+const downloadAPKFile = (apkPath: string, appName: string | number) => {
   // Create an anchor element
   const element = document.createElement("a");
-  element.href = apkPath;
-  element.download = appName + Date.now() + ".apk";
+  element.href = apkPath; //appurl from api
+  element.download = (appName as string) + Date.now() + ".apk";
   // Simulate a click on the anchor element to start the download
   document.body.appendChild(element); // Required for this to work in FireFox
   element.click();
