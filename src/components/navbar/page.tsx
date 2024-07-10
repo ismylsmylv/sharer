@@ -13,6 +13,8 @@ type Props = {};
 function Navbar({}: Props) {
   const [active, setactive] = useState("left");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [checked, setchecked] = useState(false);
+
   return (
     <div className="Navbar">
       {sidebarOpen ? (
@@ -40,8 +42,9 @@ function Navbar({}: Props) {
             }}
           />
         )}
-
-        <Link href={"/home"}>sharer</Link>
+        <Link href={"/home"} style={{ display: checked ? "none" : "block" }}>
+          sharer
+        </Link>
       </div>
       <div className="navs">
         <div className="highlighted">
@@ -75,7 +78,7 @@ function Navbar({}: Props) {
       </div>
       <div className="controls">
         <div className="search lg:w-64	flex items-center justify-end	">
-          <SearchBox />
+          <SearchBox setchecked={setchecked} checked={checked} />
         </div>
         {/* <div className="group">
           <svg className="icon" aria-hidden="true" viewBox="0 0 24 24">
