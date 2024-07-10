@@ -6,8 +6,11 @@ import { FaCompass } from "react-icons/fa6";
 import { IoMdAddCircle } from "react-icons/io";
 import { IoGameControllerSharp, IoSettingsSharp } from "react-icons/io5";
 import { TbAppsFilled } from "react-icons/tb";
-
 import "./style.scss";
+type Props = {
+  sidebarOpen: boolean;
+  setSidebarOpen: any;
+};
 let sideNavs = [
   {
     icon: <FaCompass size={25} color="#ACAFC1" />,
@@ -23,7 +26,7 @@ let sideNavs = [
   { icon: <IoSettingsSharp size={25} color="#ACAFC1" />, title: "settings" },
   // { icon: <FaThList size={25} color="#ACAFC1" />, title: "categories" },
 ];
-function Sidebar({ sidebarOpen, setSidebarOpen }) {
+function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
   const pathname = usePathname();
   return (
     <div className="Sidebar">

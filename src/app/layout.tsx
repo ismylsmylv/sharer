@@ -27,7 +27,7 @@ export default function RootLayout({
           </div>
           <div className="sided">
             <div className="sideBarContainer">
-              <Sidebar />
+              <Sidebar sidebarOpen={false} setSidebarOpen={undefined} />
             </div>
             {children}
           </div>
