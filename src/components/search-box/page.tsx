@@ -1,10 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import "./style.scss";
-type Props = {};
+type Props = {
+  setchecked: any;
+  checked: boolean;
+};
 
-function SearchBox({}: Props) {
-  const [checked, setchecked] = useState(false);
+function SearchBox({ setchecked, checked }: Props) {
   return (
     <div className="searchBox">
       <div className="container">
