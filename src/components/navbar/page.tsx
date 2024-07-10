@@ -74,7 +74,7 @@ function Navbar({}: Props) {
         </Link>
       </div>
       <div className="controls">
-        <div className="search w-64	flex items-center justify-end	">
+        <div className="search lg:w-64	flex items-center justify-end	">
           <SearchBox />
         </div>
         {/* <div className="group">

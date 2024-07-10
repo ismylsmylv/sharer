@@ -77,7 +77,7 @@
 
     .controls {
         display: flex;
-        align-items: center;
+        align-items: end;
         justify-content: center;
         gap: 20px;
 
@@ -106,6 +106,14 @@
 
         .navs {
             display: none;
+        }
+
+        .controls {
+            gap: 0;
+
+            button {
+                display: none;
+            }
         }
     }
 }

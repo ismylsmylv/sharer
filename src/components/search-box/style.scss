@@ -15,8 +15,12 @@
         align-items: center;
         justify-content: center;
         border-radius: 160px;
-        background-color: rgb(0, 0, 0);
+        // background-color: rgb(0, 0, 0);
+        // background-color: red;
         transition: all 0.3s ease;
+        // border-color: #acafc1;
+        // border: 1px solid #acafc1;
+        color: black;
     }
 
     .checkbox:focus {
@@ -38,7 +42,7 @@
     }
 
     .checkbox:checked~.mainbox .iconContainer {
-        padding-right: 8px;
+        // padding-right: 8px;
     }
 
     .checkbox {
@@ -58,18 +62,17 @@
         height: 100%;
         width: 170px;
         background-color: transparent;
-        border: none;
         outline: none;
         padding-bottom: 4px;
         padding-left: 10px;
         font-size: 1em;
-        color: white;
+        color: black;
         transition: all 0.3s ease;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
 
     .search_input::placeholder {
-        color: rgba(255, 255, 255, 0.776);
+        color: rgba(90, 90, 90, 0.776);
     }
 
     .iconContainer {
@@ -81,7 +84,7 @@
 
     .search_icon {
         box-sizing: border-box;
-        fill: white;
+        fill: #acafc1;
         font-size: 1.3em;
     }
 }

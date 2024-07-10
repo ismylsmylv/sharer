@@ -9,14 +9,17 @@ function SearchBox({}: Props) {
     <div className="searchBox">
       <div className="container">
         <input
-          checked={checked}
+          checked={!checked}
           className="checkbox"
           type="checkbox"
-          onClick={(e) => {
+          onClick={() => {
             setchecked(!checked);
           }}
         />
-        <div className="mainbox">
+        <div
+          className="mainbox"
+          style={{ border: checked ? "1px solid #acafc1" : "" }}
+        >
           <div className="iconContainer">
             <svg
               viewBox="0 0 512 512"
