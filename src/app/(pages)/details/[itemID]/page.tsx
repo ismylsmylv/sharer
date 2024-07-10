@@ -10,6 +10,22 @@ import { useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 import { MdDownload } from "react-icons/md";
 import "./style.scss";
+import InstaAPK from "@/assets/apk/index.apk";
+
+const downloadAPKFile = (apkPath, appName) => {
+  // Create an anchor element
+  const element = document.createElement("a");
+  element.href = apkPath;
+  element.download = appName + Date.now() + ".apk";
+  // Simulate a click on the anchor element to start the download
+  document.body.appendChild(element); // Required for this to work in FireFox
+  element.click();
+  // Remove the element from the document
+  document.body.removeChild(element);
+};
+
+// Usage example
+
 function embedder(rawUrl: any) {
   var url = rawUrl;
   var id;
@@ -86,7 +102,15 @@ function Details({ params }: { params: { itemID: string } }) {
               </div>
             </div>
             <div className="righthead">
-              <button>Download</button>
+              {/* <Link href={} download="MyExampleDoc" target="_blank"> */}
+              <button
+                onClick={() => {
+                  downloadAPKFile(InstaAPK, "instagram");
+                }}
+              >
+                Download
+              </button>
+              {/* </Link> */}
               <Link
                 href={"https://www.wikihow.com/Install-APK-Files-on-Android"}
                 target="_blank"
