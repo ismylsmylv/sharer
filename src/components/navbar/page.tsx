@@ -42,11 +42,17 @@ function Navbar({}: Props) {
             }}
           />
         )}
-        <Link href={"/home"} style={{ display: checked ? "none" : "block" }}>
+        <Link
+          href={"/home"}
+          style={{
+            display:
+              checked && window && window.innerWidth < 400 ? "none" : "block",
+          }}
+        >
           sharer
         </Link>
       </div>
-      <div className="navs">
+      {/* <div className="navs">
         <div className="highlighted">
           <nav>
             <button
@@ -75,7 +81,7 @@ function Navbar({}: Props) {
         <Link href={"/settings"}>
           <button>settings</button>
         </Link>
-      </div>
+      </div> */}
       <div className="controls">
         <div className="search lg:w-64	flex items-center justify-end	">
           <SearchBox setchecked={setchecked} checked={checked} />
