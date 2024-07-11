@@ -29,10 +29,11 @@ function Games({}: Props) {
               heading={"Train your mind"}
               subHeading={"Games had never been more challenging"}
               image={Trainer as StaticImageData | any}
-              type={"game"}
+              type={["game"]}
               head={""}
               selectedCount={0}
               reversed={false}
+              button={false}
             />
             <ItemSlider
               reversed={true}
@@ -40,9 +41,10 @@ function Games({}: Props) {
               heading={"Simulate more ways"}
               subHeading={"There's not just one option"}
               image={Learner}
-              type={"game"}
+              type={["game"]}
               head={""}
               selectedCount={0}
+              button={false}
             />
           </div>
           <ItemList
@@ -50,6 +52,7 @@ function Games({}: Props) {
             apps={apps}
             type={["game"]}
             selectedCount={100}
+            button={false}
           />
         </>
       )}

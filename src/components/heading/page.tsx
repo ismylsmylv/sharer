@@ -2,7 +2,7 @@
 import React from "react";
 import "./style.scss";
 import { useRouter } from "next/navigation";
-type Props = { head: string; button: boolean; forward: string };
+type Props = { head: string; button: boolean; forward: string[] };
 
 function Heading({ head, button, forward }: Props) {
   const router = useRouter();

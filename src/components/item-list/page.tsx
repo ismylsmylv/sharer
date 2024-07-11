@@ -15,7 +15,7 @@ interface Elem {
   data: any;
   name: string;
   info: string;
-  type: string;
+  type: string[];
   icon: string;
   price: number;
   inAppPurchases: string;

@@ -7,7 +7,7 @@ import ItemGrid from "../item-grid/page";
 type Props = {
   head: string;
   apps: Elem[] | any;
-  type: string;
+  type: string[];
   selectedCount: number;
   heading: string;
   subHeading: string;
@@ -19,7 +19,7 @@ type Props = {
 interface Elem {
   name: string;
   info: string;
-  type: string;
+  type: string[] | string;
   icon: string;
   price: number;
   inAppPurchases: string;
@@ -40,7 +40,7 @@ function ItemSlider({
 
   return (
     <div className="ItemSlider">
-      <Heading head={heading} button={button} />
+      <Heading head={heading} button={button} forward={type} />
       <p>{subHeading}</p>
       <div className="bottom">
         <Image alt="player" src={image} />

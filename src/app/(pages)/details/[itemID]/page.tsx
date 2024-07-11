@@ -142,6 +142,7 @@ function Details({ params }: { params: { itemID: string } }) {
               apps={apps}
               type={[app.data?.type]}
               selectedCount={4}
+              button={false}
             />
           </div>
         </div>

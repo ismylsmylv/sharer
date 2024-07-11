@@ -35,7 +35,7 @@ function HomePage() {
               heading={"Indie Games Masterpiece"}
               subHeading={"Play the must-have games"}
               image={Player as StaticImageData | any}
-              type={"game"}
+              type={["game"]}
               head={""}
               selectedCount={0}
               reversed={false}

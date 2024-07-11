@@ -28,10 +28,11 @@ function Apps({}: Props) {
               heading={"Boost your productivity"}
               subHeading={"Add, edit and organize schedule in any way"}
               image={Organizer as any}
-              type={"app"}
+              type={["app"]}
               head={""}
               selectedCount={0}
               reversed={false}
+              button={false}
             />
             <ItemSlider
               reversed={true}
@@ -39,9 +40,10 @@ function Apps({}: Props) {
               heading={"Socialize"}
               subHeading={"Communicate with everyone"}
               image={Caller as any}
-              type={"app"}
+              type={["app"]}
               head={""}
               selectedCount={0}
+              button={false}
             />
           </div>
           <ItemList
@@ -49,6 +51,7 @@ function Apps({}: Props) {
             apps={apps}
             type={["app"]}
             selectedCount={100}
+            button={false}
           />
         </>
       )}

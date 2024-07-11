@@ -3,7 +3,7 @@ import "./style.scss";
 type Props = {
   head: string;
   apps: Elem[] | any;
-  type: string;
+  type: string[];
   selectedCount: number;
 };
 interface Elem {
@@ -11,7 +11,7 @@ interface Elem {
   data: any;
   name: string;
   info: string;
-  type: string;
+  type: string[];
   icon: string;
   price: number;
   inAppPurchases: string;
