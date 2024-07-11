@@ -27,7 +27,7 @@ function SearchPage() {
         <ItemList
           head={`Search results for "${searchParams.get("in")}"`}
           apps={result}
-          type={["game"]}
+          type={["game", "app"]}
           selectedCount={5}
           button={false}
         />
