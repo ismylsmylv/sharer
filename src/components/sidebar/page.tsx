@@ -21,9 +21,9 @@ let sideNavs = [
     title: "games",
   },
   { icon: <AiFillAppstore size={25} color="#ACAFC1" />, title: "apps" },
-  { icon: <IoMdAddCircle size={25} color="#ACAFC1" />, title: "add" },
-  { icon: <TbAppsFilled size={25} color="#ACAFC1" />, title: "my apps" },
-  { icon: <IoSettingsSharp size={25} color="#ACAFC1" />, title: "settings" },
+  // { icon: <IoMdAddCircle size={25} color="#ACAFC1" />, title: "add" },
+  // { icon: <TbAppsFilled size={25} color="#ACAFC1" />, title: "my apps" },
+  // { icon: <IoSettingsSharp size={25} color="#ACAFC1" />, title: "settings" },
   // { icon: <FaThList size={25} color="#ACAFC1" />, title: "categories" },
 ];
 function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
@@ -51,6 +51,20 @@ function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
             </Link>
           );
         })}
+
+        {localStorage.getItem("auth") == process.env.AUTH && (
+          <Link
+            className={`${
+              pathname === `/add` ? `sideNav active add` : `sideNav add`
+            }`}
+            href={"/add"}
+            onClick={() => {
+              setSidebarOpen(false);
+            }}
+          >
+            <IoMdAddCircle size={25} color="#ACAFC1" /> add
+          </Link>
+        )}
       </div>
     </div>
   );
