@@ -11,7 +11,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction, UnknownAction } from "@reduxjs/toolkit";
 
 export interface AppsState {
-  apps: object[];
+  apps: object[] | any;
   appByID: {
     data?: DocumentData;
     id?: string;
@@ -74,7 +74,7 @@ export const appsSlice = createSlice({
   initialState,
   reducers: {
     searchByName: (state, action) => {
-      state.result = state.apps.filter((app) =>
+      state.result = state.apps.filter((app: { data: { name: string } }) =>
         app.data.name.toLowerCase().includes(action.payload.toLowerCase())
       );
       console.log(JSON.stringify(state.result));
