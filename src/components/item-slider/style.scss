@@ -36,5 +36,12 @@
 
     .ItemSlider {
         width: 100%;
+
+        .bottom img {
+            margin: 0 auto;
+            margin-bottom: 10px;
+            height: 150px;
+            width: 150px;
+        }
     }
 }

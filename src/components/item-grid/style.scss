@@ -21,6 +21,7 @@
             border-radius: 10px;
             margin: 0;
             margin-bottom: 10px;
+            object-fit: cover;
         }
 
         .name {
@@ -57,8 +58,51 @@
 
         .item {
             padding: 0;
+
+            img {
+                height: 70px;
+                width: 70px;
+            }
         }
     }
 
+
+}
+
+
+@media (max-width:500px) {
+
+    .ItemGrid .item img {
+        height: 60px;
+        width: 60px;
+    }
+}
+
+@media (min-width:700px) and (max-width:1024px) {
+    .ItemGrid {
+        .item {
+            display: flex;
+            // flex-wrap: wrap;
+            align-items: center;
+            justify-content: left;
+            gap: 10px;
+
+            img {
+                margin-bottom: 0px;
+            }
+
+            .content {
+                display: flex;
+                align-items: left;
+                justify-content: center;
+                flex-direction: column;
+
+                .price,
+                .info {
+                    display: none;
+                }
+            }
+        }
+    }
 
 }

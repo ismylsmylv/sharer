@@ -32,12 +32,14 @@ function ItemGrid({ apps, type }: Props) {
               key={app.data.name}
             >
               <img src={app.data.icon} alt="icon" />
-              <div className="name">{app.data.name}</div>
-              <div className="price">
-                {app.data.price ? <>${app.data.price}</> : <>Free</>}
-              </div>
-              <div className="info">
-                {app.data.inAppPurchases == "true" && <>in-App Purchases</>}
+              <div className="content">
+                <div className="name">{app.data.name}</div>
+                <div className="price">
+                  {app.data.price ? <>${app.data.price}</> : <>Free</>}
+                </div>
+                <div className="info">
+                  {app.data.inAppPurchases == "true" && <>in-App Purchases</>}
+                </div>
               </div>
             </Link>
           )
