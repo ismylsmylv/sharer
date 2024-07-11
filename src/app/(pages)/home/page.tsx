@@ -27,6 +27,7 @@ function HomePage() {
             apps={apps}
             type={["app", "game"]}
             selectedCount={5}
+            button={true}
           />
           <div className="flex content-left items-start gap-2 h-full	flex-wrap	">
             <ItemSlider
@@ -38,6 +39,7 @@ function HomePage() {
               head={""}
               selectedCount={0}
               reversed={false}
+              button={false}
             />
             <AccountCard />
           </div>
@@ -46,6 +48,7 @@ function HomePage() {
             apps={apps}
             type={["game"]}
             selectedCount={5}
+            button={true}
           />
         </>
       )}

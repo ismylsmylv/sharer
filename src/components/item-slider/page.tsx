@@ -13,6 +13,7 @@ type Props = {
   subHeading: string;
   image: string;
   reversed: boolean;
+  button: boolean;
 };
 
 interface Elem {
@@ -30,6 +31,7 @@ function ItemSlider({
   image,
   reversed,
   type,
+  button,
 }: Props) {
   let reverseApps: object[] = [];
   if (reversed) {
@@ -38,7 +40,7 @@ function ItemSlider({
 
   return (
     <div className="ItemSlider">
-      <Heading head={heading} />
+      <Heading head={heading} button={button} />
       <p>{subHeading}</p>
       <div className="bottom">
         <Image alt="player" src={image} />

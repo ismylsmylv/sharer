@@ -8,6 +8,7 @@ type Props = {
   apps: Elem[] | any;
   type: string[];
   selectedCount: number;
+  button: boolean;
 };
 interface Elem {
   id: any;
@@ -19,11 +20,11 @@ interface Elem {
   price: number;
   inAppPurchases: string;
 }
-function ItemList({ head, apps, type, selectedCount }: Props) {
+function ItemList({ head, apps, type, selectedCount, button }: Props) {
   let count = 0;
   return (
     <div className="ItemList">
-      <Heading head={head} />
+      <Heading head={head} button={button} forward={type} />
       <div className="content">
         {apps?.map((elem: Elem) => {
           type.includes(elem.data.type) && count < selectedCount && count++;

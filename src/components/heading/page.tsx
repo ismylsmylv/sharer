@@ -1,12 +1,23 @@
+"use client";
 import React from "react";
 import "./style.scss";
-type Props = { head: string };
+import { useRouter } from "next/navigation";
+type Props = { head: string; button: boolean; forward: string };
 
-function Heading({ head }: Props) {
+function Heading({ head, button, forward }: Props) {
+  const router = useRouter();
   return (
     <div className="heading">
       <h1>{head}</h1>
-      {head != "See more" && <button>see all</button>}
+      {head != "See more" && button && (
+        <button
+          onClick={() => {
+            router.push(forward[0] + "s");
+          }}
+        >
+          see all
+        </button>
+      )}
     </div>
   );
 }
