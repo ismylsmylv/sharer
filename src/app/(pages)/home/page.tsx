@@ -24,7 +24,7 @@ function HomePage() {
         <Loading />
       ) : (
         <>
-          <Slider app={apps?.length > 0 && apps?.[5]} apps={[]} />
+          <Slider app={apps?.length > 0 && apps?.[6]} apps={[]} />
 
           <ItemList
             head={"Best Viral Apps and Games"}

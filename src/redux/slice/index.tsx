@@ -79,6 +79,9 @@ export const appsSlice = createSlice({
       );
       console.log(JSON.stringify(state.result));
     },
+    setLoading: (state, action) => {
+      state.loading = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(
@@ -97,7 +100,7 @@ export const appsSlice = createSlice({
     );
   },
 });
-export const { searchByName } = appsSlice.actions;
+export const { searchByName, setLoading } = appsSlice.actions;
 
 // Action creators are generated for each case reducer function
 // You can export additional actions if needed

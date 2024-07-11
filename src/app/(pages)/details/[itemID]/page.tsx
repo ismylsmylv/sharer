@@ -4,7 +4,7 @@ import DetailsCategory from "@/components/details-categories/page";
 import InfoDetail from "@/components/details-infoDetail/page";
 import ItemList from "@/components/item-list/page";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { fetchAppById, fetchApps } from "@/redux/slice";
+import { fetchAppById, fetchApps, setLoading } from "@/redux/slice";
 import Link from "next/link";
 import { useEffect } from "react";
 import { FaStar } from "react-icons/fa";
@@ -62,6 +62,10 @@ function Details({ params }: { params: { itemID: string } }) {
     dispatch(fetchAppById(id) as any);
     dispatch(fetchApps() as any);
     app && console.log(app);
+    setTimeout(() => {
+      dispatch(setLoading(false));
+    }, 1000);
+    dispatch(setLoading(true));
   }, []);
   return (
     <>

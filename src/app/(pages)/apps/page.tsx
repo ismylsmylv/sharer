@@ -24,7 +24,7 @@ function Apps({}: Props) {
         <Loading />
       ) : (
         <>
-          <Slider app={apps?.length > 0 && apps?.[5]} apps={[]} />
+          <Slider app={apps?.length > 0 && apps?.[6]} apps={[]} />
 
           <div className="flex content-left items-center gap-2 h-full	flex-wrap	">
             <ItemSlider
