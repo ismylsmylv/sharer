@@ -105,7 +105,7 @@ function Details({ params }: { params: { itemID: string } }) {
               {/* <Link href={} download="MyExampleDoc" target="_blank"> */}
               <button
                 onClick={() => {
-                  downloadAPKFile(InstaAPK, "instagram");
+                  downloadAPKFile(app?.data?.appUrl, "instagram");
                 }}
               >
                 Download
