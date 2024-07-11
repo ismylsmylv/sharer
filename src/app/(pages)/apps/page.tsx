@@ -8,17 +8,21 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { fetchApps } from "@/redux/slice";
 import { useEffect } from "react";
 import "./style.scss";
+import Loading from "@/components/loading/page";
 type Props = {};
 
 function Apps({}: Props) {
   const dispatch = useAppDispatch();
   const apps = useAppSelector((state: any) => state.apps.apps);
+  const isLoading = useAppSelector((state) => state.apps.loading);
   useEffect(() => {
     dispatch(fetchApps());
   }, []);
   return (
     <div className="Apps">
-      {apps && apps.length > 0 && (
+      {isLoading ? (
+        <Loading />
+      ) : (
         <>
           <Slider app={apps?.length > 0 && apps?.[5]} apps={[]} />
 

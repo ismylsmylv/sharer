@@ -9,16 +9,20 @@ import { fetchApps } from "@/redux/slice";
 import { StaticImageData } from "next/image";
 import { useEffect } from "react";
 import "./style.scss";
+import Loading from "@/components/loading/page";
 
 function HomePage() {
   const dispatch = useAppDispatch();
   const apps = useAppSelector((state: any) => state.apps.apps);
+  const isLoading = useAppSelector((state) => state.apps.loading);
   useEffect(() => {
     dispatch(fetchApps());
   }, []);
   return (
     <div className="HomePage">
-      {apps && apps.length > 0 && (
+      {isLoading ? (
+        <Loading />
+      ) : (
         <>
           <Slider app={apps?.length > 0 && apps?.[5]} apps={[]} />
 

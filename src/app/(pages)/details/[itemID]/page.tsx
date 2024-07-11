@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 import { MdDownload } from "react-icons/md";
 import "./style.scss";
+import Loading from "@/components/loading/page";
 
 const downloadAPKFile = (apkPath: string, appName: string | number) => {
   // Create an anchor element
@@ -55,6 +56,7 @@ function Details({ params }: { params: { itemID: string } }) {
   const dispatch = useAppDispatch();
   const app = useAppSelector((state: any) => state.apps.appByID);
   const apps = useAppSelector((state: any) => state.apps.apps);
+  const isLoading = useAppSelector((state) => state.apps.loading);
   useEffect(() => {
     const id = params.itemID;
     dispatch(fetchAppById(id) as any);
@@ -63,7 +65,9 @@ function Details({ params }: { params: { itemID: string } }) {
   }, []);
   return (
     <>
-      {app && (
+      {isLoading ? (
+        <Loading />
+      ) : (
         <div className="Details">
           <div className="cover">
             {app.data?.trailer ? (

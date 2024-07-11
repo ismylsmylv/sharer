@@ -6,6 +6,8 @@ import Navbar from "@/components/navbar/page";
 import Sidebar from "@/components/sidebar/page";
 import { store } from "@/redux/store";
 import { Provider } from "react-redux";
+import { useAppSelector } from "@/redux/hooks";
+import Loading from "@/components/loading/page";
 const inter = Inter({ subsets: ["latin"] });
 
 // export const metadata: Metadata = {
