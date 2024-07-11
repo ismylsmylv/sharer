@@ -6,6 +6,7 @@ import {
   getDoc,
   getDocs,
   getFirestore,
+  updateDoc,
 } from "@firebase/firestore";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction, UnknownAction } from "@reduxjs/toolkit";
@@ -66,6 +67,25 @@ export const fetchApps = createAsyncThunk<DocumentData[], void, {}>(
       // console.log(doc.id, " => ", doc.data());
     });
     return apps;
+  }
+);
+export const patchDownloads = createAsyncThunk(
+  "apps/patchDownloads",
+  async (
+    { docId, newDownloadsValue }: { docId: string; newDownloadsValue: number },
+    thunkAPI
+  ) => {
+    const db = getFirestore(app);
+    const docRef = doc(db, "apps", docId);
+
+    try {
+      await updateDoc(docRef, {
+        downloads: newDownloadsValue,
+      });
+      return { docId, newDownloadsValue };
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
   }
 );
 

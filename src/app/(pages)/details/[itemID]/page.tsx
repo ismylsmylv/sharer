@@ -4,7 +4,12 @@ import DetailsCategory from "@/components/details-categories/page";
 import InfoDetail from "@/components/details-infoDetail/page";
 import ItemList from "@/components/item-list/page";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { fetchAppById, fetchApps, setLoading } from "@/redux/slice";
+import {
+  fetchAppById,
+  fetchApps,
+  patchDownloads,
+  setLoading,
+} from "@/redux/slice";
 import Link from "next/link";
 import { useEffect } from "react";
 import { FaStar } from "react-icons/fa";
@@ -57,8 +62,8 @@ function Details({ params }: { params: { itemID: string } }) {
   const app = useAppSelector((state: any) => state.apps.appByID);
   const apps = useAppSelector((state: any) => state.apps.apps);
   const isLoading = useAppSelector((state) => state.apps.loading);
+  const id = params.itemID;
   useEffect(() => {
-    const id = params.itemID;
     dispatch(fetchAppById(id) as any);
     dispatch(fetchApps() as any);
     app && console.log(app);
@@ -84,9 +89,11 @@ function Details({ params }: { params: { itemID: string } }) {
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               ></iframe>
-            ) : app?.data?.cover ? (
-              <img src={app?.data?.cover} alt="" />
             ) : (
+              //  app?.data?.cover ? (
+              //   <img src={app?.data?.cover} alt="" />
+              // ) :
+
               <></>
             )}
           </div>
@@ -103,7 +110,9 @@ function Details({ params }: { params: { itemID: string } }) {
                   </div>
                   <div className="downloads infoSec">
                     <MdDownload size={15} color="#6262ff" />
-                    {app.data?.downloads}
+                    {app.data?.downloads == 0
+                      ? "No downloads yet"
+                      : app.data?.downloads}
                   </div>
                 </div>
               </div>
@@ -112,8 +121,13 @@ function Details({ params }: { params: { itemID: string } }) {
               {/* <Link href={} download="MyExampleDoc" target="_blank"> */}
               <button
                 disabled={!app?.data?.appUrl}
-                onClick={() => {
-                  downloadAPKFile(app?.data?.appUrl, app.data?.name);
+                onClick={async () => {
+                  const newDownloadsValue = Number(app.data?.downloads) + 1;
+                  downloadAPKFile(app?.data?.appUrl as string, app.data?.name);
+                  dispatch(
+                    patchDownloads({ docId: app?.id, newDownloadsValue })
+                  );
+                  dispatch(fetchAppById(id) as any);
                 }}
               >
                 {app?.data?.appUrl ? "Download" : "Not available"}
