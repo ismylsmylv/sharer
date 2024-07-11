@@ -48,7 +48,7 @@ function embedder(rawUrl: any) {
   }
 
   var embedlink = "https://www.youtube.com/embed/" + id;
-  console.log(embedlink);
+  // console.log(embedlink);
   return embedlink;
 }
 

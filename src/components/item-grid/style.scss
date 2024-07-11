@@ -28,7 +28,12 @@
             font-weight: 600;
             max-width: 90px;
             width: fit-content;
-
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            /* number of lines to show */
+            line-clamp: 2;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
         }
 
         .price {
