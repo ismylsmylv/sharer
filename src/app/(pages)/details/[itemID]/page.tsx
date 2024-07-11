@@ -10,7 +10,6 @@ import { useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 import { MdDownload } from "react-icons/md";
 import "./style.scss";
-import InstaAPK from "@/assets/apk/index.apk";
 
 const downloadAPKFile = (apkPath: string, appName: string | number) => {
   // Create an anchor element
@@ -104,11 +103,12 @@ function Details({ params }: { params: { itemID: string } }) {
             <div className="righthead">
               {/* <Link href={} download="MyExampleDoc" target="_blank"> */}
               <button
+                disabled={!app?.data?.appUrl}
                 onClick={() => {
-                  downloadAPKFile(app?.data?.appUrl, "instagram");
+                  downloadAPKFile(app?.data?.appUrl, app.data?.name);
                 }}
               >
-                Download
+                {app?.data?.appUrl ? "Download" : "Not available"}
               </button>
               {/* </Link> */}
               <Link
