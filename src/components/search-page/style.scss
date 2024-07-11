@@ -6,4 +6,19 @@
     // background-color: #F7F6FB;
     border-top-left-radius: 30px;
 
+    h1 {
+        font-size: 25px;
+    }
+}
+
+
+@media (max-width:1024px) {
+    .SearchPage {
+        padding: 10px !important;
+
+        h1 {
+            padding: 0 10px;
+            font-size: 20px;
+        }
+    }
 }

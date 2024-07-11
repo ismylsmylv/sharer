@@ -23,7 +23,7 @@ function SearchPage() {
 
   return (
     <div className="SearchPage">
-      {result && result.length > 0 && (
+      {result && result.length > 0 ? (
         <ItemList
           head={`Search results for "${searchParams.get("in")}"`}
           apps={result}
@@ -31,6 +31,8 @@ function SearchPage() {
           selectedCount={5}
           button={false}
         />
+      ) : (
+        <h1>Nothing found for &apos;{searchParams.get("in")}&apos;</h1>
       )}
     </div>
   );

@@ -37,7 +37,6 @@ function SearchBox({ setchecked, checked }: Props) {
             </svg>
           </div>
           <form
-            action="submit"
             onSubmit={(e) => {
               e.preventDefault();
               router.push(`/search?in=${input}`);
