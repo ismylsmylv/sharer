@@ -110,4 +110,15 @@
         -webkit-box-orient: vertical;
     }
 
+    .slider .slide .content .button {
+        background-color: #6262ff;
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width:400px) {
+
+    .slider .slide .content .subtext {
+        display: none;
+    }
 }
