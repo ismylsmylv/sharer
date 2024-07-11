@@ -39,11 +39,13 @@ function SearchBox({ setchecked, checked }: Props) {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              router.push(`/search?in=${input}`);
+              if (input) {
+                router.push(`/search?in=${input}`);
 
-              setchecked(false);
-              setinput("");
-              console.log("submit");
+                setchecked(false);
+                setinput("");
+                console.log("submit");
+              }
             }}
           >
             <input
