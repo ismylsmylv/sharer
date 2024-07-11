@@ -27,30 +27,30 @@ function ItemList({ head, apps, type, selectedCount, button }: Props) {
       <Heading head={head} button={button} forward={type} />
       <div className="content">
         {apps?.map((elem: Elem) => {
-          type.includes(elem.data.type) && count < selectedCount && count++;
+          type.includes(elem?.data?.type) && count < selectedCount && count++;
           // console.log(type);
           return (
-            type.includes(elem.data.type) &&
+            type.includes(elem?.data?.type) &&
             count < selectedCount && (
               <Link
-                href={`/details/${elem.id}`}
+                href={`/details/${elem?.id}`}
                 className="item"
-                key={elem.data.name}
+                key={elem?.data?.name}
               >
                 <div className="left">
-                  <img src={elem.data.icon} alt="" />
+                  <img src={elem?.data?.icon} alt="" />
                   <div className="info">
-                    <div className="name">{elem.data.name}</div>
-                    <div className="text">{elem.data.info}</div>
+                    <div className="name">{elem?.data?.name}</div>
+                    <div className="text">{elem?.data?.info}</div>
                   </div>
                 </div>
                 <div className="manage">
-                  {elem.data.price ? (
+                  {elem?.data?.price ? (
                     <button>${elem.data.price}</button>
                   ) : (
                     <button>Get</button>
                   )}
-                  {elem.data.inAppPurchases == "true" && (
+                  {elem?.data?.inAppPurchases == "true" && (
                     <p>in App Purchases</p>
                   )}
                 </div>

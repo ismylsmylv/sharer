@@ -16,11 +16,15 @@ export interface AppsState {
     data?: DocumentData;
     id?: string;
   };
+  loading: boolean;
+  result: object[];
 }
 
 const initialState: AppsState = {
   apps: [],
   appByID: {},
+  loading: true,
+  result: [],
 };
 
 interface AppData {
@@ -68,24 +72,33 @@ export const fetchApps = createAsyncThunk<DocumentData[], void, {}>(
 export const appsSlice = createSlice({
   name: "apps",
   initialState,
-  reducers: {},
+  reducers: {
+    searchByName: (state, action) => {
+      state.result = state.apps.filter((app) =>
+        app.data.name.toLowerCase().includes(action.payload.toLowerCase())
+      );
+      console.log(JSON.stringify(state.result));
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(
       fetchApps.fulfilled,
       (state, action: PayloadAction<DocumentData[]>) => {
         state.apps = action.payload;
+        state.loading = false;
       }
     );
     builder.addCase(
       fetchAppById.fulfilled,
       (state, action: PayloadAction<{ data: DocumentData; id: string }>) => {
         state.appByID = action.payload;
+        state.loading = false;
       }
     );
   },
 });
+export const { searchByName } = appsSlice.actions;
 
 // Action creators are generated for each case reducer function
 // You can export additional actions if needed
-
 export default appsSlice.reducer;

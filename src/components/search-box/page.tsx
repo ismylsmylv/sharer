@@ -1,7 +1,7 @@
 "use client";
-import React, { useState } from "react";
-import "./style.scss";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import "./style.scss";
 type Props = {
   setchecked: any;
   checked: boolean;
@@ -10,6 +10,7 @@ type Props = {
 function SearchBox({ setchecked, checked }: Props) {
   const [input, setinput] = useState("");
   const router = useRouter();
+
   return (
     <div className="searchBox">
       <div className="container">

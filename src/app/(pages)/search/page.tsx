@@ -2,21 +2,36 @@
 import ItemList from "@/components/item-list/page";
 import "./style.scss";
 import { useSearchParams } from "next/navigation";
-import React from "react";
+import React, { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { fetchApps, searchByName } from "@/redux/slice";
 
-type Props = {};
-
-function SearchPage({}: Props) {
+function SearchPage() {
   const searchParams = useSearchParams();
+  const dispatch = useAppDispatch();
+  const apps = useAppSelector((state) => state.apps.apps);
+  const result = useAppSelector((state) => state.apps.result);
+
+  useEffect(() => {
+    const searchTerm = searchParams.get("in");
+    if (searchTerm) {
+      dispatch(fetchApps()).then(() => {
+        dispatch(searchByName(searchTerm));
+      });
+    }
+  }, [dispatch, searchParams]);
+
   return (
     <div className="SearchPage">
-      <ItemList
-        head={`Search results for "${searchParams.get("in")}"`}
-        apps={[]}
-        type={["game"]}
-        selectedCount={5}
-        button={false}
-      />
+      {result && result.length > 0 && (
+        <ItemList
+          head={`Search results for "${searchParams.get("in")}"`}
+          apps={result}
+          type={["game"]}
+          selectedCount={5}
+          button={false}
+        />
+      )}
     </div>
   );
 }
