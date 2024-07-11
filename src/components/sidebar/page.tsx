@@ -7,6 +7,7 @@ import { IoMdAddCircle } from "react-icons/io";
 import { IoGameControllerSharp, IoSettingsSharp } from "react-icons/io5";
 import { TbAppsFilled } from "react-icons/tb";
 import "./style.scss";
+import { useEffect, useState } from "react";
 type Props = {
   sidebarOpen: boolean;
   setSidebarOpen: any;
@@ -28,6 +29,14 @@ let sideNavs = [
 ];
 function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
   const pathname = usePathname();
+  // const localAuth = localStorage?.getItem("auth") || "";
+  const [localAuth, setLocalAuth] = useState<string>("");
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const auth = localStorage.getItem("auth") || "";
+      setLocalAuth(auth);
+    }
+  }, []);
   return (
     <div className="Sidebar">
       <div className="sideNavs">
@@ -52,7 +61,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
           );
         })}
 
-        {localStorage.getItem("auth") == process.env.AUTH && (
+        {localAuth == process.env.NEXT_PUBLIC_AUTH && (
           <Link
             className={`${
               pathname === `/add` ? `sideNav active add` : `sideNav add`
