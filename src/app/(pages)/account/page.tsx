@@ -1,28 +1,19 @@
 "use client";
-import React, { useState } from "react";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faLock, faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import {
-  faFacebookF,
-  faTwitter,
-  faGoogle,
-  faLinkedinIn,
-} from "@fortawesome/free-brands-svg-icons";
-import "./style.scss";
-import { Toaster, toast } from "sonner";
 import SigninImage from "@/assets/images/signin.png";
 import SignupImage from "@/assets/images/signup.png";
+import SignIn from "@/components/account-signin/page";
+import SignUp from "@/components/account-signup/page";
+import { GoogleAuthProvider, getAuth } from "firebase/auth";
+import { useState } from "react";
+import { Toaster } from "sonner";
+import "./style.scss";
 type Props = {};
 
 function Account({}: Props) {
-  const [isSignUpMode, setIsSignUpMode] = useState(false);
+  const [isSignUpMode, setIsSignUpMode] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const provider = new GoogleAuthProvider();
   const auth = getAuth();
   return (
     <div className={`container ${isSignUpMode ? "sign-up-mode" : ""}`}>
@@ -30,153 +21,15 @@ function Account({}: Props) {
       <div className="forms-container">
         <div className="signin-signup">
           {/* SIGN IN */}
-          <form action="#" className="sign-in-form">
-            <h2 className="title">Sign in</h2>
-            <div className="input-field">
-              <FontAwesomeIcon icon={faUser} color="#ACAFC1" />
-              <input
-                type="text"
-                placeholder="Username"
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-                value={email}
-              />
-            </div>
-            <div className="input-field">
-              <FontAwesomeIcon icon={faLock} color="#ACAFC1" />
-              <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-              />
-            </div>
-            <button
-              type="submit"
-              className="btn solid"
-              onClick={(e) => {
-                e.preventDefault();
-                signInWithEmailAndPassword(auth, email, password)
-                  .then((userCredential) => {
-                    // Signed in
-                    const user = userCredential.user;
-                    // ...
-                    console.log(user, "signed in");
-                    localStorage.setItem("credentials", JSON.stringify(user));
-                  })
-
-                  .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                  });
-                console.log(email, password, "email pass");
-                console.log("sign in");
-              }}
-            >
-              Login
-            </button>
-            <p className="social-text">Or Sign in with social platforms</p>
-            <div className="social-media">
-              <a href="#" className="social-icon">
-                <FontAwesomeIcon icon={faFacebookF} />
-              </a>
-              <a href="#" className="social-icon">
-                <FontAwesomeIcon icon={faTwitter} />
-              </a>
-              <a href="#" className="social-icon">
-                <FontAwesomeIcon icon={faGoogle} />
-              </a>
-              <a href="#" className="social-icon">
-                <FontAwesomeIcon icon={faLinkedinIn} />
-              </a>
-            </div>
-          </form>
+          <SignIn
+            setIsSignUpMode={setIsSignUpMode}
+            isSignUpMode={isSignUpMode}
+          />
           {/* SIGN UP */}
-          <form action="#" className="sign-up-form">
-            <h2 className="title">Sign up</h2>
-            <div className="input-field">
-              <FontAwesomeIcon icon={faEnvelope} color="#ACAFC1" />
-              <input
-                type="email"
-                value={email}
-                placeholder="Email"
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-              />
-            </div>
-            <div className="input-field">
-              <FontAwesomeIcon icon={faLock} color="#ACAFC1" />
-              <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-              />
-            </div>
-            <button
-              type="submit"
-              className="btn"
-              value="Sign up"
-              onClick={(e) => {
-                e.preventDefault();
-                // isSignUpMode
-                //   ?
-                createUserWithEmailAndPassword(auth, email, password)
-                  .then((userCredential) => {
-                    // Signed up
-                    const user = userCredential.user;
-                    // ...
-                    setEmail("");
-                    setPassword("");
-                    console.log(user, "signed up");
-                    toast.success("Signed up successfully");
-                  })
-                  .then(() => {
-                    setIsSignUpMode(false);
-                  })
-                  .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    // ..
-                  });
-                //   : signInWithEmailAndPassword(auth, email, password)
-                //       .then((userCredential) => {
-                //         // Signed in
-                //         const user = userCredential.user;
-                //         // ...
-                //         console.log(user, "signed in");
-                //       })
-                //       .catch((error) => {
-                //         const errorCode = error.code;
-                //         const errorMessage = error.message;
-                //       });
-                console.log("sign up");
-              }}
-            >
-              Sign up
-            </button>
-            <p className="social-text">Or Sign up with social platforms</p>
-            <div className="social-media">
-              <a href="#" className="social-icon">
-                <FontAwesomeIcon icon={faFacebookF} />
-              </a>
-              <a href="#" className="social-icon">
-                <FontAwesomeIcon icon={faTwitter} />
-              </a>
-              <a href="#" className="social-icon">
-                <FontAwesomeIcon icon={faGoogle} />
-              </a>
-              <a href="#" className="social-icon">
-                <FontAwesomeIcon icon={faLinkedinIn} />
-              </a>
-            </div>
-          </form>
+          <SignUp
+            setIsSignUpMode={setIsSignUpMode}
+            isSignUpMode={isSignUpMode}
+          />
         </div>
       </div>
 
