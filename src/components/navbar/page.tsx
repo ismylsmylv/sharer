@@ -111,7 +111,9 @@ function Navbar({}: Props) {
           <button
             onClick={(e) => {
               e.preventDefault();
-              userData ? router.push("/profile") : router.push("/account");
+              userData?.length > 0
+                ? router.push("/profile")
+                : router.push("/account");
             }}
           >
             {userData && userData.photoURL ? (
