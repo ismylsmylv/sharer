@@ -183,11 +183,8 @@ function Account({}: Props) {
       <div className="panels-container">
         <div className="panel left-panel">
           <div className="content">
-            <h3>New to our community?</h3>
-            <p>
-              Discover a world of possibilities! Join us and explore a vibrant
-              community where ideas flourish and connections thrive.
-            </p>
+            <h3>Join Us!</h3>
+            <p>Create your account to get started with our service </p>
             <button
               className="btn transparent"
               onClick={() => setIsSignUpMode(true)}
@@ -195,15 +192,12 @@ function Account({}: Props) {
               Sign up
             </button>
           </div>
-          <img src={SignupImage.src as string} className="image" alt="" />
+          <img src={SigninImage.src as string} className="image" alt="" />
         </div>
         <div className="panel right-panel">
           <div className="content">
-            <h3>One of Our Valued Members</h3>
-            <p>
-              Thank you for being part of our community. Your presence enriches
-              our shared experiences. Let s continue this journey together!
-            </p>
+            <h3>Already have an account?</h3>
+            <p>Sign in to access your account and stay connected</p>
             <button
               className="btn transparent"
               onClick={() => setIsSignUpMode(false)}
@@ -211,7 +205,7 @@ function Account({}: Props) {
               Sign in
             </button>
           </div>
-          <img src={SigninImage.src as string} className="image" alt="" />
+          <img src={SignupImage.src as string} className="image" alt="" />
         </div>
       </div>
     </div>
