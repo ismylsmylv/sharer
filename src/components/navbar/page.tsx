@@ -17,7 +17,10 @@ function Navbar({}: Props) {
   const [checked, setchecked] = useState(false);
   let userData = [];
   if (typeof window !== "undefined") {
-    userData = JSON.parse(localStorage.getItem("credentials") || "") || [];
+    const localData = localStorage.getItem("credentials");
+    userData = localData
+      ? JSON.parse(localStorage.getItem("credentials") || "")
+      : [];
   }
   const router = useRouter();
   return (
