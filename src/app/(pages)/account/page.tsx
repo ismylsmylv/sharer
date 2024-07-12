@@ -15,6 +15,8 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import "./style.scss";
 import { Toaster, toast } from "sonner";
+import SigninImage from "@/assets/images/signin.png";
+import SignupImage from "@/assets/images/signup.png";
 type Props = {};
 
 function Account({}: Props) {
@@ -22,7 +24,6 @@ function Account({}: Props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const auth = getAuth();
-
   return (
     <div className={`container ${isSignUpMode ? "sign-up-mode" : ""}`}>
       <Toaster richColors position="top-right" />
@@ -32,7 +33,7 @@ function Account({}: Props) {
           <form action="#" className="sign-in-form">
             <h2 className="title">Sign in</h2>
             <div className="input-field">
-              <FontAwesomeIcon icon={faUser} />
+              <FontAwesomeIcon icon={faUser} color="#ACAFC1" />
               <input
                 type="text"
                 placeholder="Username"
@@ -43,7 +44,7 @@ function Account({}: Props) {
               />
             </div>
             <div className="input-field">
-              <FontAwesomeIcon icon={faLock} />
+              <FontAwesomeIcon icon={faLock} color="#ACAFC1" />
               <input
                 type="password"
                 placeholder="Password"
@@ -97,7 +98,7 @@ function Account({}: Props) {
           <form action="#" className="sign-up-form">
             <h2 className="title">Sign up</h2>
             <div className="input-field">
-              <FontAwesomeIcon icon={faEnvelope} />
+              <FontAwesomeIcon icon={faEnvelope} color="#ACAFC1" />
               <input
                 type="email"
                 value={email}
@@ -108,7 +109,7 @@ function Account({}: Props) {
               />
             </div>
             <div className="input-field">
-              <FontAwesomeIcon icon={faLock} />
+              <FontAwesomeIcon icon={faLock} color="#ACAFC1" />
               <input
                 type="password"
                 placeholder="Password"
@@ -194,11 +195,7 @@ function Account({}: Props) {
               Sign up
             </button>
           </div>
-          <img
-            src="https://i.ibb.co/6HXL6q1/Privacy-policy-rafiki.png"
-            className="image"
-            alt=""
-          />
+          <img src={SignupImage.src as string} className="image" alt="" />
         </div>
         <div className="panel right-panel">
           <div className="content">
@@ -214,11 +211,7 @@ function Account({}: Props) {
               Sign in
             </button>
           </div>
-          <img
-            src="https://i.ibb.co/nP8H853/Mobile-login-rafiki.png"
-            className="image"
-            alt=""
-          />
+          <img src={SigninImage.src as string} className="image" alt="" />
         </div>
       </div>
     </div>

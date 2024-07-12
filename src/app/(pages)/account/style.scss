@@ -1,25 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-}
-
-body,
-input {
-    font-family: 'Montserrat', sans-serif;
-}
-
-
 .container {
     position: relative;
     width: 100%;
     background-color: #fff;
     min-height: 100vh;
     overflow: hidden;
+    max-width: 100% !important;
 }
 
 .forms-container {
@@ -80,6 +65,10 @@ form.sign-in-form {
     grid-template-columns: 15% 85%;
     padding: 0 0.4rem;
     position: relative;
+
+    svg {
+        margin: auto auto;
+    }
 }
 
 .input-field i {
@@ -131,13 +120,13 @@ form.sign-in-form {
 }
 
 .social-icon:hover {
-    color: #F86F03;
-    border-color: #F86F03;
+    color: #6262ff;
+    border-color: #6262ff;
 }
 
 .btn {
     width: 150px;
-    background-color: #F86F03;
+    background-color: #6262ff94;
     border: none;
     outline: none;
     height: 49px;
@@ -151,7 +140,7 @@ form.sign-in-form {
 }
 
 .btn:hover {
-    background-color: #f98c39;
+    background-color: #6262ff;
 }
 
 .panels-container {
@@ -172,7 +161,7 @@ form.sign-in-form {
     top: -10%;
     right: 48%;
     transform: translateY(-50%);
-    background-image: linear-gradient(-45deg, #F86F03 0%, #FFA41B 100%);
+    background-image: linear-gradient(-45deg, #42E4B7 0%, #61E19D 100%);
     transition: 1.8s ease-in-out;
     border-radius: 50%;
     z-index: 6;
