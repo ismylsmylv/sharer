@@ -15,7 +15,10 @@ function Navbar({}: Props) {
   const [active, setactive] = useState("left");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [checked, setchecked] = useState(false);
-  const userData = JSON.parse(localStorage.getItem("credentials"));
+  let userData = [];
+  if (typeof window !== "undefined") {
+    userData = JSON.parse(localStorage.getItem("credentials") || "") || [];
+  }
   const router = useRouter();
   return (
     <div className="Navbar">
