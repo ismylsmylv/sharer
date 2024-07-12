@@ -8,13 +8,15 @@ import { HiMiniBars3CenterLeft } from "react-icons/hi2";
 import Sidebar from "../sidebar/page";
 import { IoCloseSharp } from "react-icons/io5";
 import SearchBox from "../search-box/page";
+import { useRouter } from "next/navigation";
 type Props = {};
 
 function Navbar({}: Props) {
   const [active, setactive] = useState("left");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [checked, setchecked] = useState(false);
-
+  const userData = JSON.parse(localStorage.getItem("credentials"));
+  const router = useRouter();
   return (
     <div className="Navbar">
       {sidebarOpen ? (
@@ -100,8 +102,17 @@ function Navbar({}: Props) {
           </button>
         </nav>
         <Link href={"/account"}>
-          <button>
-            <MdAccountCircle color="acafc1" size={30} />
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              userData ? router.push("/profile") : router.push("/account");
+            }}
+          >
+            {userData && userData.photoURL ? (
+              <img src={userData.photoURL} alt="" height={30} width={30} />
+            ) : (
+              <MdAccountCircle color="acafc1" size={30} />
+            )}
           </button>
         </Link>
       </div>
