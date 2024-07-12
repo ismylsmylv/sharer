@@ -1,9 +1,12 @@
+"use client";
 import React from "react";
 import "./style.scss";
 import Baloon from "@/assets/images/home_5.99fa551a.svg";
+import { useRouter } from "next/navigation";
 type Props = {};
 
 function AccountCard({}: Props) {
+  const router = useRouter();
   return (
     <div
       className="AcountCard"
@@ -14,7 +17,13 @@ function AccountCard({}: Props) {
         <div className="sub">
           Join our community: Sign in or create an account
         </div>
-        <button>join us</button>
+        <button
+          onClick={() => {
+            router.push("/account");
+          }}
+        >
+          join us
+        </button>
       </div>
     </div>
   );

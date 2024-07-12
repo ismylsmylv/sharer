@@ -8,6 +8,9 @@ import { store } from "@/redux/store";
 import { Provider } from "react-redux";
 import { useAppSelector } from "@/redux/hooks";
 import Loading from "@/components/loading/page";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 const inter = Inter({ subsets: ["latin"] });
 
 // export const metadata: Metadata = {
@@ -20,16 +23,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const path = usePathname();
+
+  const isAccountPage = path == "/account";
+  console.log(isAccountPage);
   return (
     <html lang="en">
       <body className={`${inter.className} `}>
         <Provider store={store}>
-          <div className="navbar">
-            <Navbar />
-          </div>
+          <div className="navbar">{!isAccountPage && <Navbar />}</div>
           <div className="sided">
             <div className="sideBarContainer">
-              <Sidebar sidebarOpen={false} setSidebarOpen={undefined} />
+              {!isAccountPage && (
+                <Sidebar sidebarOpen={false} setSidebarOpen={undefined} />
+              )}
             </div>
             {children}
           </div>
