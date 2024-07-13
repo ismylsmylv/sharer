@@ -13,72 +13,7 @@
         grid-template-rows: 1fr 1fr;
         gap: 20px;
 
-        .item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px;
-            cursor: pointer;
-            border-radius: 10px;
 
-            &:hover {
-                background-color: #ececec;
-            }
-
-            .left {
-                gap: 20px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
-
-            img {
-                height: 50px;
-                width: 50px;
-                border-radius: 10px;
-                object-fit: cover;
-
-            }
-
-            .name {
-                font-weight: 600;
-                font-size: 15px;
-            }
-
-            .text {
-                color: #969696;
-                margin-right: 30px;
-                overflow: hidden;
-                display: -webkit-box;
-                -webkit-line-clamp: 2;
-                /* number of lines to show */
-                line-clamp: 2;
-                -webkit-box-orient: vertical;
-            }
-
-            .manage {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                gap: 5px;
-
-                button {
-                    background-color: #6262ff;
-                    border-radius: 10px;
-                    color: white;
-                    font-weight: 500;
-                    padding: 5px 20px;
-                }
-
-                p {
-                    color: #969696;
-                    font-weight: 300;
-                    font-size: 12px;
-                    text-align: center;
-                }
-            }
-        }
     }
 }
 
@@ -95,6 +30,11 @@
             }
 
             .item {
+                .left {
+
+                    gap: 10px;
+                }
+
                 .manage {
                     p {
                         font-size: 10px;

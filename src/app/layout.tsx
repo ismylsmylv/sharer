@@ -11,6 +11,8 @@ import Loading from "@/components/loading/page";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { faL } from "@fortawesome/free-solid-svg-icons";
 const inter = Inter({ subsets: ["latin"] });
 
 // export const metadata: Metadata = {
@@ -24,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const path = usePathname();
-
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const isAccountPage = path == "/account";
   return (
     <html lang="en">
@@ -34,7 +36,10 @@ export default function RootLayout({
           <div className="sided">
             <div className="sideBarContainer">
               {!isAccountPage && (
-                <Sidebar sidebarOpen={false} setSidebarOpen={undefined} />
+                <Sidebar
+                  sidebarOpen={sidebarOpen}
+                  setSidebarOpen={setSidebarOpen}
+                />
               )}
             </div>
             {children}

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import ProfileInfo from "@/components/profile-info/page";
+import ProfileHistory from "@/components/profile-history/page";
 
 type Props = {};
 interface UserData {
@@ -26,6 +27,7 @@ function Profile({}: Props) {
     <div className="p-2.5 w-4/5		">
       <h1 className="font-medium text-xl">Profile</h1>
       <ProfileInfo userData={userData} />
+      <ProfileHistory userData={userData} />
     </div>
   );
 }
