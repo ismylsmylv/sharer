@@ -72,6 +72,9 @@ function SignIn({ setIsSignUpMode, isSignUpMode }: Props) {
             .catch((error) => {
               const errorCode = error.code;
               const errorMessage = error.message;
+              toast.error(
+                "Failed to connect to server. Credentials may be invalid."
+              );
             });
         }}
       >
