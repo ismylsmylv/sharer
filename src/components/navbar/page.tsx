@@ -18,14 +18,14 @@ function Navbar({}: Props) {
   const [active, setactive] = useState("left");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [checked, setchecked] = useState(false);
-  const [userData, setUserData] = useState<UserData>([] as any);
+  const [userData, setUserData] = useState<UserData | any>([] as any);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const localData = localStorage.getItem("credentials");
       if (localData) {
         const parsedData = JSON.parse(localData);
-        setUserData(parsedData || []);
+        setUserData(parsedData);
       }
     }
   }, []);
@@ -109,16 +109,19 @@ function Navbar({}: Props) {
           </svg>
           <input placeholder="Search" type="search" className="input" />
         </div> */}
-        <nav>
+        {/* <nav>
           <button>
             <IoIosNotifications color="acafc1" size={30} />
           </button>
-        </nav>
+        </nav> */}
         <Link href={"/account"}>
           <button
             onClick={(e) => {
               e.preventDefault();
-              userData ? router.push("/profile") : router.push("/account");
+              console.log(userData);
+              userData.length > 0
+                ? router.push("/profile")
+                : router.push("/account");
             }}
           >
             {userData && userData.photoURL ? (
@@ -127,6 +130,12 @@ function Navbar({}: Props) {
                 alt=""
                 height={30}
                 width={30}
+                style={{
+                  display:
+                    checked && window && window.innerWidth < 400
+                      ? "none"
+                      : "block",
+                }}
               />
             ) : (
               <MdAccountCircle color="acafc1" size={30} />

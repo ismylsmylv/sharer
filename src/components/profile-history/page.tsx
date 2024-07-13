@@ -21,10 +21,23 @@ function ProfileHistory({ userData }: Props) {
   }, []);
   return (
     <div className="ProfileHistory">
-      <h1 className="font-medium text-xl">App history</h1>
-      {apps?.map((elem: any) => (
-        <Item elem={elem} />
-      ))}
+      <div className="lists">
+        <div className="appList">
+          <h1 className="font-medium text-xl">App history</h1>
+          {apps?.map(
+            (elem: any) =>
+              elem.data.type == "app" && <Item elem={elem} key={elem.id} />
+          )}
+        </div>
+        <div className="appList">
+          <h1 className="font-medium text-xl">Game history</h1>
+
+          {apps?.map(
+            (elem: any) =>
+              elem.data.type == "game" && <Item elem={elem} key={elem.id} />
+          )}
+        </div>
+      </div>
     </div>
   );
 }

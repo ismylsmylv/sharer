@@ -1,3 +1,25 @@
 .ProfileHistory {
     margin-top: 50px;
+
+    .lists {
+        display: flex;
+        align-items: start;
+        justify-content: left;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .appList {
+        max-width: 45%;
+        flex-wrap: wrap;
+    }
+}
+
+
+@media (max-width:1024px) {
+
+    .appList {
+        max-width: 100% !important;
+    }
+
 }

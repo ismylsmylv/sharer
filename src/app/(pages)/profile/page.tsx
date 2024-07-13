@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import ProfileInfo from "@/components/profile-info/page";
 import ProfileHistory from "@/components/profile-history/page";
-
+import "./style.scss";
 type Props = {};
 interface UserData {
   displayName: string;
@@ -24,7 +24,7 @@ function Profile({}: Props) {
   }, []);
 
   return (
-    <div className="p-2.5 w-4/5		">
+    <div className="Profile	">
       <h1 className="font-medium text-xl">Profile</h1>
       <ProfileInfo userData={userData} />
       <ProfileHistory userData={userData} />
