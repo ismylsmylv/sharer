@@ -45,7 +45,6 @@ function SearchBox({ setchecked, checked }: Props) {
 
                 setchecked(false);
                 setinput("");
-                console.log("submit");
               }
             }}
           >

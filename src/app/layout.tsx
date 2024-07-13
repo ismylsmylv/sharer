@@ -26,7 +26,6 @@ export default function RootLayout({
   const path = usePathname();
 
   const isAccountPage = path == "/account";
-  console.log(isAccountPage);
   return (
     <html lang="en">
       <body className={`${inter.className} `}>

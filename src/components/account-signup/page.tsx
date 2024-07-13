@@ -63,7 +63,6 @@ function SignUp({ setIsSignUpMode, isSignUpMode }: Props) {
               // ...
               setEmail("");
               setPassword("");
-              console.log(user, "signed up");
               toast.success("Signed up successfully");
             })
             .then(() => {
@@ -97,7 +96,6 @@ function SignUp({ setIsSignUpMode, isSignUpMode }: Props) {
                 // const token = credential.accessToken;
                 // The signed-in user info.
                 const user = result.user;
-                console.log(user, "signed up");
                 toast.success("Signed up successfully");
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...

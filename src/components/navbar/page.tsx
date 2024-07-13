@@ -18,7 +18,6 @@ function Navbar({}: Props) {
   let userData = [];
   if (typeof window !== "undefined") {
     const localData = JSON.parse(localStorage.getItem("credentials") || "");
-    console.log(localData);
     userData = localData ? localData : null;
   }
   const router = useRouter();

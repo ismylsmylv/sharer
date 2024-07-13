@@ -63,7 +63,6 @@ function SignIn({ setIsSignUpMode, isSignUpMode }: Props) {
               // Signed in
               const user = userCredential.user;
               // ...
-              console.log(user, "signed in");
               localStorage.setItem("credentials", JSON.stringify(user));
             })
             .then(() => {
@@ -74,8 +73,6 @@ function SignIn({ setIsSignUpMode, isSignUpMode }: Props) {
               const errorCode = error.code;
               const errorMessage = error.message;
             });
-          console.log(email, password, "email pass");
-          console.log("login in");
         }}
       >
         Login
@@ -100,7 +97,6 @@ function SignIn({ setIsSignUpMode, isSignUpMode }: Props) {
                 // const token = credential.accessToken;
                 // The signed-in user info.
                 const user = result.user;
-                console.log(user, "signed in");
                 localStorage.setItem("credentials", JSON.stringify(user));
                 toast.success("Signed in successfully");
                 // IdP data available using getAdditionalUserInfo(result)

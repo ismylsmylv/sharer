@@ -97,7 +97,6 @@ export const appsSlice = createSlice({
       state.result = state.apps.filter((app: { data: { name: string } }) =>
         app.data.name.toLowerCase().includes(action.payload.toLowerCase())
       );
-      console.log(JSON.stringify(state.result));
     },
     setLoading: (state, action) => {
       state.loading = action.payload;
