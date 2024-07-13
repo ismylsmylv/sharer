@@ -1,7 +1,47 @@
 .ProfileInfo {
-    .photoUrl {
-        height: 200px;
-        width: 200px;
-        border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+
+    .details {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        gap: 20px;
+
+        .photoUrl {
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+        }
+
+        .name {
+            text-transform: capitalize;
+            font-weight: 500;
+            font-size: 22px;
+        }
+
+        .email {
+            font-size: 20px;
+        }
+
+        .joined {
+            color: #6262FF;
+        }
+    }
+
+    .control {
+        padding: 5px 15px;
+        border-radius: 5px;
+        border: 1px solid #6262FF;
+        color: #6262FF;
+        transition: 200ms linear;
+
+        &:hover {
+            background-color: #6262FF;
+            color: white;
+
+        }
     }
 }

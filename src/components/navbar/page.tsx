@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import { IoIosNotifications } from "react-icons/io";
 import { MdAccountCircle } from "react-icons/md";
@@ -10,16 +10,25 @@ import { IoCloseSharp } from "react-icons/io5";
 import SearchBox from "../search-box/page";
 import { useRouter } from "next/navigation";
 type Props = {};
-
+interface UserData {
+  displayName: string;
+  photoURL: string;
+}
 function Navbar({}: Props) {
   const [active, setactive] = useState("left");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [checked, setchecked] = useState(false);
-  let userData = [];
-  if (typeof window !== "undefined") {
-    const localData = JSON.parse(localStorage.getItem("credentials") || "");
-    userData = localData ? localData : null;
-  }
+  const [userData, setUserData] = useState<UserData>([] as any);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const localData = localStorage.getItem("credentials");
+      if (localData) {
+        const parsedData = JSON.parse(localData);
+        setUserData(parsedData || []);
+      }
+    }
+  }, []);
   const router = useRouter();
   return (
     <div className="Navbar">
@@ -113,7 +122,12 @@ function Navbar({}: Props) {
             }}
           >
             {userData && userData.photoURL ? (
-              <img src={userData.photoURL} alt="" height={30} width={30} />
+              <img
+                src={userData.photoURL as string}
+                alt=""
+                height={30}
+                width={30}
+              />
             ) : (
               <MdAccountCircle color="acafc1" size={30} />
             )}
