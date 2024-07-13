@@ -15,6 +15,7 @@ function SearchBox({ setchecked, checked }: Props) {
     <div className="searchBox">
       <div className="container">
         <input
+          defaultChecked
           checked={!checked}
           className="checkbox"
           type="checkbox"

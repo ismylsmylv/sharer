@@ -17,10 +17,9 @@ function Navbar({}: Props) {
   const [checked, setchecked] = useState(false);
   let userData = [];
   if (typeof window !== "undefined") {
-    const localData = localStorage.getItem("credentials");
-    userData = localData
-      ? JSON.parse(localStorage.getItem("credentials") || "")
-      : [];
+    const localData = JSON.parse(localStorage.getItem("credentials") || "");
+    console.log(localData);
+    userData = localData ? localData : null;
   }
   const router = useRouter();
   return (
@@ -111,9 +110,7 @@ function Navbar({}: Props) {
           <button
             onClick={(e) => {
               e.preventDefault();
-              userData?.length > 0
-                ? router.push("/profile")
-                : router.push("/account");
+              userData ? router.push("/profile") : router.push("/account");
             }}
           >
             {userData && userData.photoURL ? (

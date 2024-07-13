@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { AiFillAppstore } from "react-icons/ai";
 import { FaCompass } from "react-icons/fa6";
 import { IoMdAddCircle } from "react-icons/io";
@@ -37,12 +37,13 @@ function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
       setLocalAuth(auth);
     }
   }, []);
+  const router = useRouter();
   return (
     <div className="Sidebar">
       <div className="sideNavs">
         {sideNavs.map((elem) => {
           return (
-            <Link
+            <button
               className={`${
                 pathname === `/${elem.title}`
                   ? `sideNav active ${elem.title}`
@@ -50,29 +51,29 @@ function Sidebar({ sidebarOpen, setSidebarOpen }: Props) {
                   ? `sideNav active ${elem.title}`
                   : `sideNav ${elem.title}`
               }`}
-              href={elem.title != "discover" ? "/" + elem.title : "/"}
               key={elem.title}
               onClick={() => {
                 setSidebarOpen(false);
+                router.push(elem.title != "discover" ? "/" + elem.title : "/");
               }}
             >
               {elem.icon} {elem.title}
-            </Link>
+            </button>
           );
         })}
 
         {localAuth == process.env.NEXT_PUBLIC_AUTH && (
-          <Link
+          <button
             className={`${
               pathname === `/add` ? `sideNav active add` : `sideNav add`
             }`}
-            href={"/add"}
             onClick={() => {
               setSidebarOpen(false);
+              router.push("/add");
             }}
           >
             <IoMdAddCircle size={25} color="#ACAFC1" /> add
-          </Link>
+          </button>
         )}
       </div>
     </div>
