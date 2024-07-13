@@ -34,8 +34,8 @@ function SignIn({ setIsSignUpMode, isSignUpMode }: Props) {
       <div className="input-field">
         <FontAwesomeIcon icon={faUser} color="#ACAFC1" />
         <input
-          type="text"
-          placeholder="Username"
+          type="Email"
+          placeholder="Email"
           onChange={(e) => {
             setEmail(e.target.value);
           }}
@@ -72,9 +72,7 @@ function SignIn({ setIsSignUpMode, isSignUpMode }: Props) {
             .catch((error) => {
               const errorCode = error.code;
               const errorMessage = error.message;
-              toast.error(
-                "Failed to connect to server. Credentials may be invalid."
-              );
+              toast.error("Failed to login. Credentials may be invalid.");
             });
         }}
       >

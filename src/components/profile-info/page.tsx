@@ -30,7 +30,15 @@ function ProfileInfo({ userData }: Props) {
   return (
     <div className="ProfileInfo">
       <div className="details">
-        <img src={userData.photoURL} alt="" className="photoUrl" />
+        <img
+          src={
+            userData.photoURL
+              ? userData.photoURL
+              : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
+          }
+          alt=""
+          className="photoUrl"
+        />
         <div className="texts">
           <div className="name">{userData.displayName}</div>
           <div className="email">{userData.email}</div>
@@ -44,6 +52,7 @@ function ProfileInfo({ userData }: Props) {
               localStorage.removeItem("credentials");
             }
             router.push("/");
+            // window.location.reload();
           }}
         >
           Sign out
