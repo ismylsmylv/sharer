@@ -26,148 +26,171 @@ const fields = [
 ];
 
 function Add({}: Props) {
+  let localData = [] as any;
+  if (typeof window !== "undefined") {
+    localData = localStorage.getItem("auth") || null;
+    if (localData) {
+    }
+  }
+
   return (
-    <Formik
-      initialValues={{
-        name: "",
-        price: 0,
-        info: "",
-        releaseDate: "",
-        size: 0,
-        supportContact: "",
-        trailer: "",
-        updateDate: "",
-        email: "",
-        inAppPurchases: "",
-        description: "",
-        type: "",
-        cover: "",
-        icon: "",
-        downloads: "",
-        publisher: "",
-        review: 0,
-        screenshots: [""],
-        category: [""],
-      }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(async () => {
-          console.log(values);
-          const uuid = uuidv4();
-          await setDoc(doc(db, "apps", uuid), {
-            name: values.name,
-            price: values.price,
-            info: values.info,
-            icon: values.icon,
-            releaseDate: values.releaseDate,
-            size: values.size,
-            supportContact: values.supportContact,
-            trailer: values.trailer,
-            updateDate: values.updateDate,
-            email: values.email,
-            inAppPurchases: values.inAppPurchases,
-            description: values.description,
-            cover: values.cover,
-            downloads: values.downloads,
-            screenshots: values.screenshots,
-            category: values.category,
-            publisher: values.publisher,
-            type: values.type,
-            review: values.review,
-          });
-          setSubmitting(false);
-          console.log("posted");
-        }, 400);
-      }}
-    >
-      {({ values }) => (
-        <Form className="flex flex-col">
-          {fields.map((field) => (
-            <div className="my-1" key={field.name}>
-              <label htmlFor={field.name} className="mr-1">
-                {field.name}
+    <>
+      {localData == process.env.NEXT_PUBLIC_AUTH ? (
+        <Formik
+          initialValues={{
+            name: "",
+            price: 0,
+            info: "",
+            releaseDate: "",
+            size: 0,
+            supportContact: "",
+            trailer: "",
+            updateDate: "",
+            email: "",
+            inAppPurchases: "",
+            description: "",
+            type: "",
+            cover: "",
+            icon: "",
+            downloads: "",
+            publisher: "",
+            review: 0,
+            screenshots: [""],
+            category: [""],
+          }}
+          onSubmit={(values, { setSubmitting }) => {
+            setTimeout(async () => {
+              console.log(values);
+              const uuid = uuidv4();
+              await setDoc(doc(db, "apps", uuid), {
+                name: values.name,
+                price: values.price,
+                info: values.info,
+                icon: values.icon,
+                releaseDate: values.releaseDate,
+                size: values.size,
+                supportContact: values.supportContact,
+                trailer: values.trailer,
+                updateDate: values.updateDate,
+                email: values.email,
+                inAppPurchases: values.inAppPurchases,
+                description: values.description,
+                cover: values.cover,
+                downloads: values.downloads,
+                screenshots: values.screenshots,
+                category: values.category,
+                publisher: values.publisher,
+                type: values.type,
+                review: values.review,
+              });
+              setSubmitting(false);
+              console.log("posted");
+            }, 400);
+          }}
+        >
+          {({ values }) => (
+            <Form className="flex flex-col">
+              {fields.map((field) => (
+                <div className="my-1" key={field.name}>
+                  <label htmlFor={field.name} className="mr-1">
+                    {field.name}
+                  </label>
+                  <Field
+                    name={field.name}
+                    type={field.type}
+                    className="border-2"
+                  />
+                  <ErrorMessage name={field.name} component="div" />
+                </div>
+              ))}
+              <label htmlFor="screenshots" className="mr-1">
+                screenshots
               </label>
-              <Field name={field.name} type={field.type} className="border-2" />
-              <ErrorMessage name={field.name} component="div" />
-            </div>
-          ))}
-          <label htmlFor="screenshots" className="mr-1">
-            screenshots
-          </label>
-          <FieldArray
-            name="screenshots"
-            render={(arrayHelpers) => (
-              <div>
-                {values.screenshots && values.screenshots.length > 0 ? (
-                  values.screenshots.map((screenshot, index) => (
-                    <div key={index}>
-                      <Field
-                        name={`screenshots.${index}`}
-                        className="border-2 mb-1"
-                      />
+              <FieldArray
+                name="screenshots"
+                render={(arrayHelpers) => (
+                  <div>
+                    {values.screenshots && values.screenshots.length > 0 ? (
+                      values.screenshots.map((screenshot, index) => (
+                        <div key={index}>
+                          <Field
+                            name={`screenshots.${index}`}
+                            className="border-2 mb-1"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => arrayHelpers.remove(index)}
+                          >
+                            -
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => arrayHelpers.insert(index, "")}
+                          >
+                            +
+                          </button>
+                        </div>
+                      ))
+                    ) : (
                       <button
                         type="button"
-                        onClick={() => arrayHelpers.remove(index)}
+                        onClick={() => arrayHelpers.push("")}
                       >
-                        -
+                        Add a screenshot
                       </button>
-                      <button
-                        type="button"
-                        onClick={() => arrayHelpers.insert(index, "")}
-                      >
-                        +
-                      </button>
-                    </div>
-                  ))
-                ) : (
-                  <button type="button" onClick={() => arrayHelpers.push("")}>
-                    Add a screenshot
-                  </button>
+                    )}
+                  </div>
                 )}
-              </div>
-            )}
-          />
-          <label htmlFor="category" className="mr-1">
-            category
-          </label>
-          <FieldArray
-            name="category"
-            render={(arrayHelpers) => (
-              <div>
-                {values.category && values.category.length > 0 ? (
-                  values.category.map((cat, index) => (
-                    <div key={index}>
-                      <Field
-                        name={`category.${index}`}
-                        className="border-2 mb-1"
-                      />
+              />
+              <label htmlFor="category" className="mr-1">
+                category
+              </label>
+              <FieldArray
+                name="category"
+                render={(arrayHelpers) => (
+                  <div>
+                    {values.category && values.category.length > 0 ? (
+                      values.category.map((cat, index) => (
+                        <div key={index}>
+                          <Field
+                            name={`category.${index}`}
+                            className="border-2 mb-1"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => arrayHelpers.remove(index)}
+                          >
+                            -
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => arrayHelpers.insert(index, "")}
+                          >
+                            +
+                          </button>
+                        </div>
+                      ))
+                    ) : (
                       <button
                         type="button"
-                        onClick={() => arrayHelpers.remove(index)}
+                        onClick={() => arrayHelpers.push("")}
                       >
-                        -
+                        Add a category
                       </button>
-                      <button
-                        type="button"
-                        onClick={() => arrayHelpers.insert(index, "")}
-                      >
-                        +
-                      </button>
-                    </div>
-                  ))
-                ) : (
-                  <button type="button" onClick={() => arrayHelpers.push("")}>
-                    Add a category
-                  </button>
+                    )}
+                  </div>
                 )}
+              />
+              <div>
+                <button type="submit">Submit</button>
               </div>
-            )}
-          />
-          <div>
-            <button type="submit">Submit</button>
-          </div>
-        </Form>
+            </Form>
+          )}
+        </Formik>
+      ) : (
+        <h1>be an admin to see this page</h1>
       )}
-    </Formik>
+    </>
   );
 }
 
