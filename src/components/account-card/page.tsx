@@ -21,10 +21,10 @@ function AccountCard({}: Props) {
       }
     }
   }, []);
-  console.log(userData);
+  // console.log(userData);
   return (
     <>
-      {!userData && (
+      {Object.keys(userData).length === 0 && (
         <div
           className="AcountCard"
           style={{

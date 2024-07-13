@@ -26,6 +26,7 @@ function Navbar({}: Props) {
       if (localData) {
         const parsedData = JSON.parse(localData);
         setUserData(parsedData);
+        console.log(userData);
       }
     }
   }, []);
@@ -118,10 +119,11 @@ function Navbar({}: Props) {
           <button
             onClick={(e) => {
               e.preventDefault();
-              console.log(userData);
-              userData.length > 0
-                ? router.push("/profile")
-                : router.push("/account");
+              // console.log(userData);
+              Object.keys(userData).length === 0
+                ? router.push("/account")
+                : router.push("/profile");
+              // console.log(Object.keys(userData).length === 0);
             }}
           >
             {userData && userData.photoURL ? (
