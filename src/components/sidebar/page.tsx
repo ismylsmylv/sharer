@@ -5,6 +5,7 @@ import { AiFillAppstore } from "react-icons/ai";
 import { FaCompass } from "react-icons/fa6";
 import { IoMdAddCircle } from "react-icons/io";
 import { IoGameControllerSharp, IoSettingsSharp } from "react-icons/io5";
+import { FaCircleInfo } from "react-icons/fa6";
 import { TbAppsFilled } from "react-icons/tb";
 import "./style.scss";
 import { useEffect, useState } from "react";
@@ -22,6 +23,7 @@ let sideNavs = [
     title: "games",
   },
   { icon: <AiFillAppstore size={25} color="#ACAFC1" />, title: "apps" },
+  { icon: <FaCircleInfo size={23} color="#ACAFC1" />, title: "about" },
   // { icon: <IoMdAddCircle size={25} color="#ACAFC1" />, title: "add" },
   // { icon: <TbAppsFilled size={25} color="#ACAFC1" />, title: "my apps" },
   // { icon: <IoSettingsSharp size={25} color="#ACAFC1" />, title: "settings" },

@@ -13,6 +13,7 @@
 }
 .sided {
   display: flex;
+  width: 100%;
 }
 
 body {
@@ -23,9 +24,29 @@ body {
     z-index: 100;
   }
 }
-
 @media (max-width: 1024px) {
   .sideBarContainer {
     display: none;
   }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #6262ff;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #4343c2;
 }
