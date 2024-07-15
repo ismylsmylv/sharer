@@ -1,36 +1,14 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-https://stackoverflow.com/questions/55313748/download-file-by-clicking-a-button-in-reactjs
-## Getting Started
+**About Sharer**
+Welcome to Sharer!
 
-First, run the development server:
+I'm Ismayil Ismayilov, the developer behind this platform. Sharer is a personal project that I've created as part of my portfolio to showcase my skills and passion for web development. This platform aims to provide users with a seamless and reliable way to download game and app APKs.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**Project Highlights**
+Technology Stack: The project is built using Next.js and TypeScript, ensuring a modern and efficient development process. Firebase powers the backend, offering real-time capabilities, while Amazon S3 is used for secure and scalable file storage.
+User Experience: My focus has been on creating a user-friendly interface that allows for easy navigation and quick access to the latest and most popular APKs.
+Performance: Leveraging the infrastructure of Firebase and Amazon S3, Sharer ensures fast and secure file delivery.
+GitHub Repository
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+You can explore the source code and contribute to the project here.
+Thank you for visiting Sharer! Your support and feedback are greatly appreciated as I continue to enhance and expand this project.
+Feel free to reach out with any questions or suggestions. Let's make downloading APKs a breeze together!
