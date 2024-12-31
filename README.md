@@ -27,8 +27,5 @@ Explore the source code and contribute to the project [here](https://github.com/
 
 ---
 
-Thank you for visiting **Sharer**! Your support and feedback are greatly appreciated as I continue to enhance and expand this project. Feel free to reach out with any questions or suggestions. Let's make downloading APKs a breeze together! 
+Thank you for visiting **Sharer**! Your support and feedback are greatly appreciated as I continue to enhance and expand this project. Feel free to reach out with any questions or suggestions.
 
----
-
-If you’d like adjustments or additions, let me know!
